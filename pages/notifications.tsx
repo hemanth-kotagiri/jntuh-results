@@ -1,7 +1,7 @@
 //import Head from "next/head";
 import axios from "axios";
 import Link from "next/link";
-import { Notification } from ".";
+import { Notification } from "./definedTypes";
 import { BiArrowBack as BackIcon } from "react-icons/bi";
 
 export async function getStaticProps() {
@@ -25,7 +25,7 @@ export default ({ notifications }: Props) => {
   return (
     <div className="flex flex-col items-center justify-center min-h-screen py-2 bg-gray-800">
       <Link href="/">
-        <div className="flex flex-row items-center justify-between">
+        <div className="flex flex-row items-center justify-between cursor-pointer">
           <BackIcon size="1.5rem" className="mt-6 mr-2 text-gray-400" />
           <h3 className="text-white text-2xl font-bold mt-6">
             Latest Notifications

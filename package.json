@@ -1,9 +1,11 @@
 {
+  "homepage": "https://hemanth-kotagiri.github.io/jntuh-results-stats",
   "private": true,
   "scripts": {
     "dev": "next dev",
     "build": "next build",
-    "start": "next start"
+    "start": "next start",
+    "deploy": "yarn run build && gh-pages -b deploy"
   },
   "dependencies": {
     "next": "latest",
@@ -16,6 +18,7 @@
     "autoprefixer": "^10.4.0",
     "axios": "^0.25.0",
     "fetch": "^1.1.0",
+    "gh-pages": "^3.2.3",
     "postcss": "^8.4.5",
     "react-icons": "^4.3.1",
     "tailwindcss": "^3.0.7",

@@ -1,11 +1,6 @@
 import Head from "next/head";
 import Link from "next/link";
 
-export interface Notification {
-  notification_date: string;
-  notification_description: string;
-}
-
 export default function Home() {
   return (
     <div className="flex flex-col items-center justify-center min-h-screen py-2 bg-gray-800">
@@ -34,7 +29,7 @@ export default function Home() {
 
         <div className="flex flex-wrap items-center justify-around max-w-4xl mt-6 sm:w-full">
           <Link href="/notifications">
-            <a className="p-6 mt-6 text-left border w-96 rounded-xl hover:text-blue-600 focus:text-blue-600">
+            <a className="p-6 mt-6 text-left border border-gray-600 w-96 rounded-xl hover:text-blue-600 focus:text-blue-600 hover:border-gray-500">
               <h3 className="text-white text-2xl font-bold">
                 Notifications &rarr;
               </h3>
@@ -44,7 +39,7 @@ export default function Home() {
             </a>
           </Link>
           <Link href="/single">
-            <a className="p-6 mt-6 text-left border w-96 rounded-xl hover:text-blue-600 focus:text-blue-600">
+            <a className="p-6 mt-6 text-left border border-gray-600 w-96 rounded-xl hover:text-blue-600 focus:text-blue-600 hover:border-gray-500">
               <h3 className="text-white text-2xl font-bold">
                 Get your Result &rarr;
               </h3>
@@ -54,7 +49,7 @@ export default function Home() {
             </a>
           </Link>
           <Link href="/multi">
-            <a className="p-6 mt-6 text-left border w-96 rounded-xl hover:text-blue-600 focus:text-blue-600">
+            <a className="p-6 mt-6 text-left border border-gray-600 w-96 rounded-xl hover:text-blue-600 focus:text-blue-600 hover:border-gray-500">
               <h3 className="text-white text-2xl font-bold">
                 Get Multiple Results &rarr;
               </h3>
@@ -67,7 +62,7 @@ export default function Home() {
           <a
             target="_blank"
             href="https://hemanth-kotagiri.github.io/sgpa-rest-api-docs/"
-            className="p-6 mt-6 text-left border w-96 rounded-xl hover:text-blue-600 focus:text-blue-600"
+            className="p-6 mt-6 text-left border border-gray-600 w-96 rounded-xl hover:text-blue-600 focus:text-blue-600 hover:border-gray-500"
           >
             <h3 className="text-white text-2xl font-bold">
               API Documentation &rarr;
