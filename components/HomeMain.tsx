@@ -4,7 +4,7 @@ import HomeNavLinks from "./HomeNavigationLinks";
 
 const HomeMain = () => {
   return (
-    <main className="font-inter flex flex-col items-center justify-center w-full flex-1 px-20 text-center">
+    <main className="font-inter flex flex-col items-center justify-center w-screen flex-1 px-20 text-center">
       <HomeHeader />
       <HomeNavLinks />
     </main>
