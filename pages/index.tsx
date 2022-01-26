@@ -21,7 +21,7 @@ const Home = () => {
         <meta
           property="og:image"
           content={
-            "https://upload.wikimedia.org/wikipedia/commons/thumb/8/8e/Nextjs-logo.svg/220px-Nextjs-logo.svg.png"
+            "https://raw.githubusercontent.com/hemanth-kotagiri/jntuh-results-stats/main/public/home.jpg?token=GHSAT0AAAAAABOOG2ZRUKPH7RQYTSFQLRKCYP2NTPQ"
           }
         />
       </Head>
