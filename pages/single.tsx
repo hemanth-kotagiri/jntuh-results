@@ -1,7 +1,7 @@
 import axios from "axios";
 import Head from "next/head";
 
-export async function getServerSideProps() {
+export async function getStaticProps() {
   const resp = await axios.get(
     "https://results-restapi.herokuapp.com/new/all/regular"
   );
@@ -11,6 +11,7 @@ export async function getServerSideProps() {
     props: {
       allResults: data,
     },
+    revalidate: 60 * 30, // 30 minutes
   };
 }
 
@@ -30,7 +31,7 @@ export interface Props {
   allResults: Result[];
 }
 
-export default function Single({ allResults }: Props) {
+export default function Single() {
   return (
     <div>
       <Head>
@@ -38,18 +39,6 @@ export default function Single({ allResults }: Props) {
       </Head>
       <main>
         <h1>Get Single Hallticket Results, page under construction.</h1>
-
-        {allResults.map((item: Result, idx: number) => (
-          <div
-            key={idx}
-            className="text-white p-6 mt-6 text-left border border-gray-700 w-96 rounded-xl"
-          >
-            <h3 className="text-sky-400 text-lg sm:text-xl font-bold p-6 text-center">
-              {item.exam_name}
-            </h3>
-            <p className="mt-4 text-m text-center">{item.links[0]}</p>
-          </div>
-        ))}
       </main>
     </div>
   );
