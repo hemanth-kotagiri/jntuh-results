@@ -7,6 +7,23 @@ const Home = () => {
     <div className="flex flex-col items-center overflow-hidden justify-center min-h-screen py-2 bg-gray-800">
       <Head>
         <title>JNTUH Results Stats</title>
+        <meta
+          property="og:url"
+          content="https://jntuh-results-stats.vercel.app/"
+        />
+        <meta property="og:type" content="website" />
+        <meta property="og:title" content="JNTUH Results Statistics" />
+        <meta name="twitter:card" content="summary" />
+        <meta
+          property="og:description"
+          content="Get all results from JNTUH with just your hallticket number in one place."
+        />
+        <meta
+          property="og:image"
+          content={
+            "https://upload.wikimedia.org/wikipedia/commons/thumb/8/8e/Nextjs-logo.svg/220px-Nextjs-logo.svg.png"
+          }
+        />
       </Head>
       <HomeMain />
       <Footer />
