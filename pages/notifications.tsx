@@ -4,7 +4,7 @@ import Link from "next/link";
 import Notification from "../components/definedTypes";
 import { BiArrowBack as BackIcon } from "react-icons/bi";
 
-export async function getServerSideProps() {
+export async function getStaticProps() {
   console.log("Getting Data...");
   const response = await axios.get(
     "https://results-restapi.herokuapp.com/notifications"
@@ -14,6 +14,7 @@ export async function getServerSideProps() {
     props: {
       notifications: data,
     },
+    revalidate: 60 * 30, // 30 minutes
   };
 }
 

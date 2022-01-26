@@ -4,7 +4,7 @@
   "scripts": {
     "dev": "next dev",
     "build": "next build",
-    "start": "next start",
+    "start": "next build && next start",
     "deploy": "yarn run build && gh-pages -b deploy"
   },
   "dependencies": {
