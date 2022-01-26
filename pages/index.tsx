@@ -29,7 +29,7 @@ export default function Home() {
 
         <div className="flex flex-wrap items-center justify-around max-w-4xl mt-6 sm:w-full">
           <Link href="/notifications">
-            <a className="p-6 mt-6 text-left border border-gray-600 w-96 rounded-xl hover:text-blue-600 focus:text-blue-600 hover:border-gray-500">
+            <a className="p-6 mt-6 text-left border border-gray-600 w-96 rounded-xl hover:border-gray-500 transition ease-in-out delay-150 hover:-translate-y-1 hover:scale-105 hover:bg-blue-900 duration-300">
               <h3 className="text-white text-2xl font-bold">
                 Notifications &rarr;
               </h3>
@@ -39,7 +39,7 @@ export default function Home() {
             </a>
           </Link>
           <Link href="/single">
-            <a className="p-6 mt-6 text-left border border-gray-600 w-96 rounded-xl hover:text-blue-600 focus:text-blue-600 hover:border-gray-500">
+            <a className="p-6 mt-6 text-left border border-gray-600 w-96 rounded-xl hover:border-gray-500 transition ease-in-out delay-150 hover:-translate-y-1 hover:scale-105 hover:bg-blue-900 duration-300">
               <h3 className="text-white text-2xl font-bold">
                 Get your Result &rarr;
               </h3>
@@ -49,7 +49,7 @@ export default function Home() {
             </a>
           </Link>
           <Link href="/multi">
-            <a className="p-6 mt-6 text-left border border-gray-600 w-96 rounded-xl hover:text-blue-600 focus:text-blue-600 hover:border-gray-500">
+            <a className="p-6 mt-6 text-left border border-gray-600 w-96 rounded-xl hover:border-gray-500 transition ease-in-out delay-150 hover:-translate-y-1 hover:scale-105 hover:bg-blue-900 duration-300">
               <h3 className="text-white text-2xl font-bold">
                 Get Multiple Results &rarr;
               </h3>
@@ -62,7 +62,7 @@ export default function Home() {
           <a
             target="_blank"
             href="https://hemanth-kotagiri.github.io/sgpa-rest-api-docs/"
-            className="p-6 mt-6 text-left border border-gray-600 w-96 rounded-xl hover:text-blue-600 focus:text-blue-600 hover:border-gray-500"
+            className="p-6 mt-6 text-left border border-gray-600 w-96 rounded-xl hover:border-gray-500 transition ease-in-out delay-150 hover:-translate-y-1 hover:scale-105 hover:bg-blue-900 duration-300"
           >
             <h3 className="text-white text-2xl font-bold">
               API Documentation &rarr;
