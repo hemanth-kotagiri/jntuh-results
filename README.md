@@ -1,6 +1,6 @@
 # JNTUH Results Statistics
 
-![Home Page](./public/home.jpg)
+<img src="./public/home.jpg">
 
 <p align="center">
 <code><img height="50" src="https://raw.githubusercontent.com/Neikan/Neikan/master/img/icons/NextJS.svg"></code>
