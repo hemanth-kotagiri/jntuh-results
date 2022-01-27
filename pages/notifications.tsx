@@ -4,12 +4,25 @@ import Link from "next/link";
 import Notification from "../components/definedTypes";
 import { BiArrowBack as BackIcon } from "react-icons/bi";
 
-export async function getStaticProps() {
+const getData = async (refresh: boolean = false) => {
+  var url;
+  refresh
+    ? (url = "https://results-restapi.herokuapp.com/notifications?refresh=true")
+    : (url = "https://results-restapi.herokuapp.com/notifications");
+
   console.log("Getting Data...");
-  const response = await axios.get(
-    "https://results-restapi.herokuapp.com/notifications"
-  );
+  console.log(url);
+  const response = await axios.get(url);
   const data: Notification[] = await response.data;
+  return data;
+};
+
+export async function getStaticProps() {
+  var data: Notification[] = await getData();
+  while (data.length < 1) {
+    console.log("getting data again");
+    data = await getData(true);
+  }
   return {
     props: {
       notifications: data,
