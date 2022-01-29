@@ -19,7 +19,7 @@ const getData = async (refresh: boolean = false) => {
 
 export async function getStaticProps() {
   var data: Notification[] = await getData();
-  while (data.length < 1) {
+  if (data.length < 1) {
     console.log("getting data again");
     data = await getData(true);
   }
