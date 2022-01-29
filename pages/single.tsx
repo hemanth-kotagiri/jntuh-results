@@ -160,53 +160,84 @@ export default function Single({ allResults }: Props) {
       didUserSelectType &&
       didUserSelectRegulation &&
       hallticket.length === 10 ? (
-        <div className="max-w-xs flex flex-wrap items-center justify-center sm:max-w-4xl mt-6 sm:w-full">
-          {regularResults.map((item) => (
-            <div>
-              {item.exam_name.includes(selectedRegulation) ? (
-                <Link
-                  href={{
-                    pathname: "/result",
-                    query: {
-                      examCode: item.examCode,
-                      result: item.result,
-                      type: item.type,
-                      etype: item.etype,
-                      degree: item.degree,
-                      hallticket: hallticket.toUpperCase(),
-                      selectedType: regular ? "regular" : "supply",
-                    },
-                  }}
-                >
-                  <div className="cursor-pointer text-white p-6 m-6 text-left border border-gray-700 w-96 rounded-xl hover:border-gray-500 transition ease-in-out delay-150 hover:-translate-y-1 hover:scale-105 hover:bg-blue-900 duration-150">
-                    <h3 className="text-sky-400 text-lg sm:text-xl font-bold p-6 text-center">
-                      {item.release_date}
-                    </h3>
-                    <p className="mt-4 text-m text-center"> {item.exam_name}</p>
-                  </div>
-                </Link>
-              ) : null}
-            </div>
-          ))}
+        <div>
+          <h3 className="text-white text-center text-lg sm:text-2xl font-bold mt-6">
+            Regular Results
+          </h3>
+          <div className="max-w-xs flex flex-wrap items-center justify-center sm:max-w-4xl mt-6 sm:w-full">
+            {regularResults.map((item) => (
+              <div>
+                {item.exam_name.includes(selectedRegulation) ? (
+                  <Link
+                    href={{
+                      pathname: "/result",
+                      query: {
+                        examCode: item.examCode,
+                        result: item.result,
+                        type: item.type,
+                        etype: item.etype,
+                        degree: item.degree,
+                        hallticket: hallticket.toUpperCase(),
+                        selectedType: regular ? "regular" : "supply",
+                      },
+                    }}
+                  >
+                    <div className="cursor-pointer text-white p-6 m-6 text-left border border-gray-700 w-96 rounded-xl hover:border-gray-500 transition ease-in-out delay-150 hover:-translate-y-1 hover:scale-105 hover:bg-blue-900 duration-150">
+                      <h3 className="text-sky-400 text-lg sm:text-xl font-bold p-6 text-center">
+                        {item.release_date}
+                      </h3>
+                      <p className="mt-4 text-m text-center">
+                        {" "}
+                        {item.exam_name}
+                      </p>
+                    </div>
+                  </Link>
+                ) : null}
+              </div>
+            ))}
+          </div>
         </div>
       ) : null}
-      {supply && didUserSelectType && didUserSelectRegulation ? (
+      {supply &&
+      didUserSelectType &&
+      didUserSelectRegulation &&
+      hallticket.length === 10 ? (
         <div>
           <h3 className="text-white text-center text-lg sm:text-2xl font-bold mt-6">
             Supply Results
           </h3>
-          {supplyResults.map((item) => (
-            <div>
-              {item.exam_name.includes(selectedRegulation) ? (
-                <div className="text-white p-6 mt-6 text-left border border-gray-700 w-full rounded-xl">
-                  <h3 className="text-sky-400 text-lg sm:text-xl font-bold p-6 text-center">
-                    {item.release_date}
-                  </h3>
-                  <p className="mt-4 text-m text-center"> {item.exam_name}</p>
-                </div>
-              ) : null}
-            </div>
-          ))}
+          <div className="max-w-xs flex flex-wrap items-center justify-center sm:max-w-4xl mt-6 sm:w-full">
+            {supplyResults.map((item) => (
+              <div>
+                {item.exam_name.includes(selectedRegulation) ? (
+                  <Link
+                    href={{
+                      pathname: "/result",
+                      query: {
+                        examCode: item.examCode,
+                        result: item.result,
+                        type: item.type,
+                        etype: item.etype,
+                        degree: item.degree,
+                        hallticket: hallticket.toUpperCase(),
+                        selectedType: regular ? "regular" : "supply",
+                      },
+                    }}
+                  >
+                    <div className="cursor-pointer text-white p-6 m-6 text-left border border-gray-700 w-96 rounded-xl hover:border-gray-500 transition ease-in-out delay-150 hover:-translate-y-1 hover:scale-105 hover:bg-blue-900 duration-150">
+                      <h3 className="text-sky-400 text-lg sm:text-xl font-bold p-6 text-center">
+                        {item.release_date}
+                      </h3>
+                      <p className="mt-4 text-m text-center">
+                        {" "}
+                        {item.exam_name}
+                      </p>
+                    </div>
+                  </Link>
+                ) : null}
+              </div>
+            ))}
+          </div>
         </div>
       ) : null}
     </div>

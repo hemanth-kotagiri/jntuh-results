@@ -9,10 +9,6 @@ export interface Props {
   selectedType: string;
 }
 
-export interface sgpaProps {
-  SGPA: string;
-}
-
 export interface studentInfoProps {
   HTNO: string;
   NAME: string;
@@ -42,6 +38,7 @@ export async function getServerSideProps({ query }: any) {
   url += "&type=" + query.type;
   url += "&etype=" + query.etype;
   url += "&degree=" + query.degree;
+  console.log(url);
   const resp = await axios.get(url);
   const data = await resp.data;
   return {
@@ -52,9 +49,17 @@ export async function getServerSideProps({ query }: any) {
 }
 
 export default function Result({ data }: any) {
-  const sgpaInfo: sgpaProps = data[0];
-  const studentInfo: studentInfoProps = data[1];
-  const results: Result[] = data[2];
+  var sgpaInfo;
+  var studentInfo: studentInfoProps;
+  var results: Result[];
+  if (data.length === 3) {
+    sgpaInfo = data[0];
+    studentInfo = data[1];
+    results = data[2];
+  } else {
+    studentInfo = data[0];
+    results = data[1];
+  }
   return (
     <div className="text-center m-6">
       <div>
@@ -62,7 +67,7 @@ export default function Result({ data }: any) {
         <h1>{studentInfo["HTNO"]}</h1>
         <h1>{studentInfo["FATHER NAME"]}</h1>
         <h1>{studentInfo["COLLEGE CODE"]}</h1>
-        <b>{sgpaInfo.SGPA}</b>
+        {sgpaInfo ? <h1>{sgpaInfo["SGPA"]}</h1> : null}
       </div>
       <div>
         {results.map((item: Result) => (
