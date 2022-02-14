@@ -44,24 +44,25 @@ export default function Single({ allResults }: Props) {
   const [regular, setRegular] = useState<boolean>(false);
   const [supply, setSupply] = useState<boolean>(false);
   const [didUserSelectType, setDidUserSelectType] = useState<boolean>(false);
+  const [loading, setLoading] = useState<boolean>(false);
   const [didUserSelectRegulation, setDidUserSelectRegulation] =
     useState<boolean>(false);
   const [hallticket, setHallticket] = useState<string>("");
 
   const [selectedRegulation, setSelectedRegulation] = useState<string>("");
-  var formRegulations = new Set();
+  var formRegulations: Set<string> = new Set();
 
   const handleRegularClick = () => {
     setRegular(!regular);
     if (!supply) setDidUserSelectType(!didUserSelectType);
   };
 
-  const handleHallticket = (e: any) => {
-    setHallticket(e.target.text);
+  const handleHallticket = (e: React.ChangeEvent<HTMLInputElement>) => {
+    setHallticket(e.target.value);
   };
 
-  const handleRegulationClick = (e: any) => {
-    setSelectedRegulation(e.target.name);
+  const handleRegulationClick = (e: React.FormEvent<HTMLInputElement>) => {
+    setSelectedRegulation(e.currentTarget.value);
     setDidUserSelectRegulation(!didUserSelectRegulation);
   };
 
@@ -71,14 +72,14 @@ export default function Single({ allResults }: Props) {
   };
 
   var regExp = /\(([^)]+)\)/;
-  regularResults.map((item: any) => {
-    formRegulations.add(item.exam_name.match(regExp)[1]);
+  regularResults.map((item: Result) => {
+    formRegulations.add(item.exam_name.match(regExp)![1]!);
   });
 
-  supplyResults.map((item: any) => {
-    formRegulations.add(item.exam_name.match(regExp)[1]);
+  supplyResults.map((item: Result) => {
+    formRegulations.add(item.exam_name.match(regExp)![1]);
   });
-  const regulations = Array.from(formRegulations);
+  const regulations: Array<string> = Array.from(formRegulations);
 
   return (
     <div className="flex flex-col items-center min-h-screen py-2 overflow-hidden bg-gray-800 font-inter">
@@ -120,19 +121,14 @@ export default function Single({ allResults }: Props) {
       {didUserSelectType ? (
         <div>
           <div className="m-2 flex flex-row">
-            {Array.from(regulations).map((item: any) => (
-              <div className="m-2">
+            {regulations.map((item: string, idx: number) => (
+              <div className="m-2" key={idx}>
                 <input
                   type="checkbox"
                   value={item}
                   name={item}
-                  onClick={(e: any) =>
-                    handleRegulationClick({
-                      target: {
-                        name: e.target.name,
-                        value: e.target.checked,
-                      },
-                    })
+                  onClick={(e: React.FormEvent<HTMLInputElement>) =>
+                    handleRegulationClick(e)
                   }
                 />
                 <label className="ml-6 text-2xl text-white" htmlFor={item}>
@@ -146,27 +142,29 @@ export default function Single({ allResults }: Props) {
       <input
         type="text"
         name="hallticket"
-        onChange={(e: any) =>
-          handleHallticket({
-            target: {
-              text: e.target.value,
-            },
-          })
+        onChange={(e: React.ChangeEvent<HTMLInputElement>) =>
+          handleHallticket(e)
         }
       />
       <label htmlFor="hallticket"></label>
+      {loading ? (
+        <h3 className="text-gray-400 text-center text-lg sm:text-2xl font-bold mt-6">
+          Loading...
+        </h3>
+      ) : null}
 
       {regular &&
       didUserSelectType &&
       didUserSelectRegulation &&
+      !loading &&
       hallticket.length === 10 ? (
         <div>
           <h3 className="text-white text-center text-lg sm:text-2xl font-bold mt-6">
             Regular Results
           </h3>
           <div className="max-w-xs flex flex-wrap items-center justify-center sm:max-w-4xl mt-6 sm:w-full">
-            {regularResults.map((item) => (
-              <div>
+            {regularResults.map((item: Result, idx: number) => (
+              <div key={idx} onClick={() => setLoading(true)}>
                 {item.exam_name.includes(selectedRegulation) ? (
                   <Link
                     href={{
@@ -201,14 +199,15 @@ export default function Single({ allResults }: Props) {
       {supply &&
       didUserSelectType &&
       didUserSelectRegulation &&
+      !loading &&
       hallticket.length === 10 ? (
         <div>
           <h3 className="text-white text-center text-lg sm:text-2xl font-bold mt-6">
             Supply Results
           </h3>
           <div className="max-w-xs flex flex-wrap items-center justify-center sm:max-w-4xl mt-6 sm:w-full">
-            {supplyResults.map((item) => (
-              <div>
+            {supplyResults.map((item: Result, idx: number) => (
+              <div key={idx} onClick={() => setLoading(true)}>
                 {item.exam_name.includes(selectedRegulation) ? (
                   <Link
                     href={{
