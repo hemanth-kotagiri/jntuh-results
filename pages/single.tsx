@@ -1,4 +1,5 @@
 import axios from "axios";
+import Head from "next/head";
 import Link from "next/link";
 import { useState } from "react";
 import { BiArrowBack as BackIcon } from "react-icons/bi";
@@ -83,6 +84,20 @@ export default function Single({ allResults }: Props) {
 
   return (
     <div className="flex flex-col items-center min-h-screen py-2 overflow-hidden bg-gray-800 font-inter">
+      <Head>
+        <title>Get Single Hallticket Result</title>
+        <meta
+          property="og:url"
+          content="https://jntuh-results-stats.vercel.app/single"
+        />
+        <meta property="og:type" content="website" />
+        <meta property="og:title" content="JNTUH Results Statistics" />
+        <meta name="twitter:card" content="summary" />
+        <meta
+          property="og:description"
+          content="Get all results from JNTUH with just your hallticket number in one place."
+        />
+      </Head>
       <Link href="/">
         <div className="flex flex-row items-center justify-between cursor-pointer">
           <BackIcon size="1.5rem" className="mt-6 mr-2 text-gray-400" />
@@ -91,7 +106,7 @@ export default function Single({ allResults }: Props) {
           </h3>
         </div>
       </Link>
-      <p className="text-gray-400 mt-6 text-base sm:text-xl">
+      <p className="mt-6 text-base text-gray-400 sm:text-xl">
         Select from the below options to filter your desired result
       </p>
       <div className="flex flex-row">
@@ -120,7 +135,7 @@ export default function Single({ allResults }: Props) {
       </div>
       {didUserSelectType ? (
         <div>
-          <div className="m-2 flex flex-row">
+          <div className="flex flex-row m-2">
             {regulations.map((item: string, idx: number) => (
               <div className="m-2" key={idx}>
                 <input
@@ -148,7 +163,7 @@ export default function Single({ allResults }: Props) {
       />
       <label htmlFor="hallticket"></label>
       {loading ? (
-        <h3 className="text-gray-400 text-center text-lg sm:text-2xl font-bold mt-6">
+        <h3 className="mt-6 text-lg font-bold text-center text-gray-400 sm:text-2xl">
           Loading...
         </h3>
       ) : null}
@@ -159,10 +174,10 @@ export default function Single({ allResults }: Props) {
       !loading &&
       hallticket.length === 10 ? (
         <div>
-          <h3 className="text-white text-center text-lg sm:text-2xl font-bold mt-6">
+          <h3 className="mt-6 text-lg font-bold text-center text-white sm:text-2xl">
             Regular Results
           </h3>
-          <div className="max-w-xs flex flex-wrap items-center justify-center sm:max-w-4xl mt-6 sm:w-full">
+          <div className="flex flex-wrap items-center justify-center max-w-xs mt-6 sm:max-w-4xl sm:w-full">
             {regularResults.map((item: Result, idx: number) => (
               <div key={idx} onClick={() => setLoading(true)}>
                 {item.exam_name.includes(selectedRegulation) ? (
@@ -180,11 +195,11 @@ export default function Single({ allResults }: Props) {
                       },
                     }}
                   >
-                    <div className="cursor-pointer text-white p-6 m-6 text-left border border-gray-700 w-96 rounded-xl hover:border-gray-500 transition ease-in-out delay-150 hover:-translate-y-1 hover:scale-105 hover:bg-blue-900 duration-150">
-                      <h3 className="text-sky-400 text-lg sm:text-xl font-bold p-6 text-center">
+                    <div className="p-6 m-6 text-left text-white border border-gray-700 cursor-pointer w-96 rounded-xl hover:border-gray-500 transition ease-in-out delay-150 hover:-translate-y-1 hover:scale-105 hover:bg-blue-900 duration-150">
+                      <h3 className="p-6 text-lg font-bold text-center text-sky-400 sm:text-xl">
                         {item.release_date}
                       </h3>
-                      <p className="mt-4 text-m text-center">
+                      <p className="mt-4 text-center text-m">
                         {" "}
                         {item.exam_name}
                       </p>
@@ -202,10 +217,10 @@ export default function Single({ allResults }: Props) {
       !loading &&
       hallticket.length === 10 ? (
         <div>
-          <h3 className="text-white text-center text-lg sm:text-2xl font-bold mt-6">
+          <h3 className="mt-6 text-lg font-bold text-center text-white sm:text-2xl">
             Supply Results
           </h3>
-          <div className="max-w-xs flex flex-wrap items-center justify-center sm:max-w-4xl mt-6 sm:w-full">
+          <div className="flex flex-wrap items-center justify-center max-w-xs mt-6 sm:max-w-4xl sm:w-full">
             {supplyResults.map((item: Result, idx: number) => (
               <div key={idx} onClick={() => setLoading(true)}>
                 {item.exam_name.includes(selectedRegulation) ? (
@@ -223,11 +238,11 @@ export default function Single({ allResults }: Props) {
                       },
                     }}
                   >
-                    <div className="cursor-pointer text-white p-6 m-6 text-left border border-gray-700 w-96 rounded-xl hover:border-gray-500 transition ease-in-out delay-150 hover:-translate-y-1 hover:scale-105 hover:bg-blue-900 duration-150">
-                      <h3 className="text-sky-400 text-lg sm:text-xl font-bold p-6 text-center">
+                    <div className="p-6 m-6 text-left text-white border border-gray-700 cursor-pointer w-96 rounded-xl hover:border-gray-500 transition ease-in-out delay-150 hover:-translate-y-1 hover:scale-105 hover:bg-blue-900 duration-150">
+                      <h3 className="p-6 text-lg font-bold text-center text-sky-400 sm:text-xl">
                         {item.release_date}
                       </h3>
-                      <p className="mt-4 text-m text-center">
+                      <p className="mt-4 text-center text-m">
                         {" "}
                         {item.exam_name}
                       </p>
