@@ -3,6 +3,7 @@ import axios from "axios";
 import Link from "next/link";
 import Notification from "../components/definedTypes";
 import { BiArrowBack as BackIcon } from "react-icons/bi";
+import Head from "next/head";
 
 const getData = async (refresh: boolean = false) => {
   var url;
@@ -38,6 +39,20 @@ export interface Props {
 export default ({ notifications }: Props) => {
   return (
     <div className="overflow-hidden flex flex-col items-center justify-center min-h-screen py-2 bg-gray-800 font-inter">
+      <Head>
+        <title>JNTUH Results Notifications</title>
+        <meta
+          property="og:url"
+          content="https://jntuh-results-stats.vercel.app/single"
+        />
+        <meta property="og:type" content="website" />
+        <meta property="og:title" content="JNTUH Results Statistics" />
+        <meta name="twitter:card" content="summary" />
+        <meta
+          property="og:description"
+          content="Get all results from JNTUH with just your hallticket number in one place."
+        />
+      </Head>
       <Link href="/">
         <div className="flex flex-row items-center justify-between cursor-pointer">
           <BackIcon size="1.5rem" className="mt-6 mr-2 text-gray-400" />
@@ -55,6 +70,7 @@ export default ({ notifications }: Props) => {
             <h3 className="text-sky-400 text-lg sm:text-xl font-bold p-6 text-center">
               {item.notification_date}
             </h3>
+            <title>JNTUH Results Notifications</title>
             <p className="mt-4 text-m text-center">
               {item.notification_description}
             </p>
