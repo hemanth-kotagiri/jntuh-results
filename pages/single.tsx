@@ -2,6 +2,7 @@ import axios from "axios";
 import Head from "next/head";
 import Link from "next/link";
 import { useState } from "react";
+import Result from "../components/definedTypes";
 import { BiArrowBack as BackIcon } from "react-icons/bi";
 
 export async function getStaticProps() {
@@ -21,18 +22,6 @@ export async function getStaticProps() {
     },
     revalidate: 60 * 30, // 30 minutes
   };
-}
-
-export interface Result {
-  exam_name: string;
-  release_date: string;
-  links: string[];
-  degree: string;
-  examCode: string;
-  etype: string;
-  result: string;
-  type: string;
-  id: number;
 }
 
 export interface Props {
