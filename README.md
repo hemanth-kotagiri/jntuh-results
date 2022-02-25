@@ -1,7 +1,8 @@
 # JNTUH Results Statistics
 
-<img src="./public/home.jpg">
-
+<img src="./homepage.jpg">
+<br>
+<br>
 <p align="center">
 <code><img height="50" src="https://raw.githubusercontent.com/Neikan/Neikan/master/img/icons/NextJS.svg"></code>
 <code><img height="50" src="https://raw.githubusercontent.com/Neikan/Neikan/master/img/icons/React.svg"></code>
