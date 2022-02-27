@@ -1,12 +1,20 @@
-import Head from "next/head";
+import PageHead from "../components/PageHeader";
 
 export default function Single() {
   return (
     <div>
-      <Head>
-        <title>JNTUH Results Stats</title>
-      </Head>
-      <main>Get multiple Hallticket Results, page under construction.</main>
+      <PageHead
+        title={"Get Multiple Results with Statistics"}
+        description={
+          "Get Results of more than one student with results statistics"
+        }
+        url={"multi"}
+      />
+      <main>
+        <h1 className="text-xl text-center">
+          Get multiple Hallticket Results, page under construction.
+        </h1>
+      </main>
     </div>
   );
 }
