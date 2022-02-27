@@ -87,29 +87,36 @@ export default function Single({ allResults }: Props) {
         </div>
       </Link>
       <p className="mt-6 text-base text-gray-400 sm:text-xl">
-        Select from the below options to filter your desired result
+        Select from the below options to filter your desired result. Please
+        select only a single regulation at a time.
       </p>
       <div className="flex flex-row">
-        <div className="m-2">
+        <div className="flex flex-row items-center m-2">
           <input
             type="checkbox"
             value="Regular"
             name="Regular"
             onClick={handleRegularClick}
           />
-          <label className="ml-6 text-2xl text-white" htmlFor="regular">
-            Regular Results
+          <label
+            className="ml-6 text-xl text-white sm:text-2xl"
+            htmlFor="regular"
+          >
+            <h3 className="text-xl text-white sm:text-2xl">Regular Results</h3>
           </label>
         </div>
-        <div className="m-2">
+        <div className="flex flex-row items-center m-2">
           <input
             type="checkbox"
             value="Supply"
             name="Supply"
             onClick={handleSupplyClick}
           />
-          <label className="ml-6 text-2xl text-white" htmlFor="regular">
-            Supply Results
+          <label
+            className="ml-6 text-xl text-white sm:text-2xl"
+            htmlFor="regular"
+          >
+            <h3 className="text-xl text-white sm:text-2xl">Supply Results</h3>
           </label>
         </div>
       </div>
@@ -137,11 +144,11 @@ export default function Single({ allResults }: Props) {
       <input
         type="text"
         name="hallticket"
+        className="border bg-gray-800 text-white cursor-black"
         onChange={(e: React.ChangeEvent<HTMLInputElement>) =>
           handleHallticket(e)
         }
       />
-      <label htmlFor="hallticket"></label>
       {loading ? (
         <h3 className="mt-6 text-lg font-bold text-center text-gray-400 sm:text-2xl">
           Loading, Please wait...
