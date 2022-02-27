@@ -144,7 +144,7 @@ export default function Single({ allResults }: Props) {
       <input
         type="text"
         name="hallticket"
-        className="border bg-gray-800 text-white cursor-black"
+        className="border bg-gray-800 text-white cursor-black border-gray-700"
         onChange={(e: React.ChangeEvent<HTMLInputElement>) =>
           handleHallticket(e)
         }
