@@ -144,7 +144,7 @@ export default function Single({ allResults }: Props) {
       <label htmlFor="hallticket"></label>
       {loading ? (
         <h3 className="mt-6 text-lg font-bold text-center text-gray-400 sm:text-2xl">
-          Loading...
+          Loading, Please wait...
         </h3>
       ) : null}
 

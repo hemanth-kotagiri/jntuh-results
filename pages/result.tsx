@@ -61,15 +61,15 @@ export default function Result({ data }: any) {
     results = data[1];
   }
   return (
-    <div className="text-center m-6">
-      <div>
+    <div className="text-center bg-gray-800 font-inter">
+      <div className="text-white">
         <h1>{studentInfo["NAME"]}</h1>
         <h1>{studentInfo["HTNO"]}</h1>
         <h1>{studentInfo["FATHER NAME"]}</h1>
         <h1>{studentInfo["COLLEGE CODE"]}</h1>
         {sgpaInfo ? <h1>{sgpaInfo["SGPA"]}</h1> : null}
       </div>
-      <div>
+      <div className="text-white">
         {results.map((item: Result) => (
           <div>
             <h1>{item.subject_name}</h1>
