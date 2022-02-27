@@ -1,9 +1,9 @@
 import axios from "axios";
-import Head from "next/head";
 import Link from "next/link";
 import { useState } from "react";
 import Result from "../components/definedTypes";
 import { BiArrowBack as BackIcon } from "react-icons/bi";
+import PageHead from "../components/PageHeader";
 
 export async function getStaticProps() {
   const regularResp = await axios.get(
@@ -73,20 +73,11 @@ export default function Single({ allResults }: Props) {
 
   return (
     <div className="flex flex-col items-center min-h-screen py-2 overflow-hidden bg-gray-800 font-inter">
-      <Head>
-        <title>Get Single Hallticket Result</title>
-        <meta
-          property="og:url"
-          content="https://jntuh-results-stats.vercel.app/single"
-        />
-        <meta property="og:type" content="website" />
-        <meta property="og:title" content="JNTUH Results Statistics" />
-        <meta name="twitter:card" content="summary" />
-        <meta
-          property="og:description"
-          content="Get all results from JNTUH with just your hallticket number in one place."
-        />
-      </Head>
+      <PageHead
+        title={"Get Single Hallticket Result"}
+        description={"Get Result of a student given his hallticket number"}
+        url={"single"}
+      />
       <Link href="/">
         <div className="flex flex-row items-center justify-between cursor-pointer">
           <BackIcon size="1.5rem" className="mt-6 mr-2 text-gray-400" />
