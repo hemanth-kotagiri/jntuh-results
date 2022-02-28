@@ -82,15 +82,15 @@ export default function Single({ allResults }: Props) {
         <div className="flex flex-row items-center justify-between cursor-pointer">
           <BackIcon size="1.5rem" className="mt-6 mr-2 text-gray-400" />
           <h3 className="mt-6 text-lg font-bold text-white sm:text-2xl">
-            Get your result
+            Home
           </h3>
         </div>
       </Link>
-      <p className="mt-6 text-base text-gray-400 sm:text-xl">
+      <p className="m-6 text-base text-gray-400 sm:text-xl">
         Select from the below options to filter your desired result. Please
         select only a single regulation at a time.
       </p>
-      <div className="flex flex-row">
+      <div className="flex flex-row text-xl text-white sm:text-2xl">
         <div className="flex flex-row items-center m-2">
           <input
             type="checkbox"
@@ -99,10 +99,10 @@ export default function Single({ allResults }: Props) {
             onClick={handleRegularClick}
           />
           <label
-            className="ml-6 text-xl text-white sm:text-2xl"
-            htmlFor="regular"
+            className="ml-2 text-xl text-white sm:text-2xl"
+            htmlFor="Regular"
           >
-            <h3 className="text-xl text-white sm:text-2xl">Regular Results</h3>
+            <h3>Regular Results</h3>
           </label>
         </div>
         <div className="flex flex-row items-center m-2">
@@ -113,27 +113,31 @@ export default function Single({ allResults }: Props) {
             onClick={handleSupplyClick}
           />
           <label
-            className="ml-6 text-xl text-white sm:text-2xl"
-            htmlFor="regular"
+            className="ml-2 text-xl text-white sm:text-2xl"
+            htmlFor="Supply"
           >
-            <h3 className="text-xl text-white sm:text-2xl">Supply Results</h3>
+            <h3>Supply Results</h3>
           </label>
         </div>
       </div>
       {didUserSelectType ? (
         <div>
-          <div className="flex flex-row m-2">
+          <div className="flex flex-col m-2 sm:flex-row">
             {regulations.map((item: string, idx: number) => (
               <div className="m-2" key={idx}>
                 <input
                   type="checkbox"
                   value={item}
                   name={item}
+                  id={idx.toString()}
                   onClick={(e: React.FormEvent<HTMLInputElement>) =>
                     handleRegulationClick(e)
                   }
                 />
-                <label className="ml-6 text-2xl text-white" htmlFor={item}>
+                <label
+                  className="ml-2 text-lg text-white sm:text-2xl"
+                  htmlFor={item}
+                >
                   {item}
                 </label>
               </div>
@@ -144,7 +148,7 @@ export default function Single({ allResults }: Props) {
       <input
         type="text"
         name="hallticket"
-        className="border bg-gray-800 text-white cursor-black border-gray-700"
+        className="text-white bg-gray-800 border border-gray-700 cursor-black"
         onChange={(e: React.ChangeEvent<HTMLInputElement>) =>
           handleHallticket(e)
         }
