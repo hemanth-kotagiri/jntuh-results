@@ -188,7 +188,7 @@ export default function Single({ allResults }: Props) {
                   >
                     <div
                       onClick={() => setLoading(true)}
-                      className="p-6 m-6 text-left text-white border border-gray-700 cursor-pointer w-96 rounded-xl hover:border-gray-500 transition ease-in-out delay-150 hover:-translate-y-1 hover:scale-105 hover:bg-blue-900 duration-150"
+                      className="p-6 m-6 text-left text-white border border-gray-700 cursor-pointer max-w-xs sm:w-96 rounded-xl hover:border-gray-500 transition ease-in-out delay-150 hover:-translate-y-1 hover:scale-105 hover:bg-blue-900 duration-150"
                     >
                       <h3 className="p-6 text-lg font-bold text-center text-sky-400 sm:text-xl">
                         {item.release_date}
