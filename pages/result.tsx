@@ -7,6 +7,7 @@ export interface Props {
   type: string;
   etype: string;
   degree: string;
+  hallticket: string;
   selectedType: string;
 }
 
@@ -27,7 +28,7 @@ export interface Result {
   total_marks?: string;
 }
 
-export async function getServerSideProps({ query }: any) {
+export async function getServerSideProps(query: Props) {
   var url = "https://results-restapi.herokuapp.com/api";
   if (query.selectedType === "regular") {
     url += "/calculate";
