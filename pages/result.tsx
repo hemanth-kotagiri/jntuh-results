@@ -1,7 +1,7 @@
 import axios from "axios";
 import PageHead from "../components/PageHeader";
 
-export interface Props {
+export interface queryProps {
   examCode: string;
   result: string;
   type: string;
@@ -9,6 +9,11 @@ export interface Props {
   degree: string;
   hallticket: string;
   selectedType: string;
+}
+
+export interface Props {
+  pathname: string;
+  query: queryProps;
 }
 
 export interface studentInfoProps {
@@ -28,7 +33,8 @@ export interface Result {
   total_marks?: string;
 }
 
-export async function getServerSideProps(query: Props) {
+export async function getServerSideProps(givenData: Props) {
+  const query = givenData.query;
   var url = "https://results-restapi.herokuapp.com/api";
   if (query.selectedType === "regular") {
     url += "/calculate";
