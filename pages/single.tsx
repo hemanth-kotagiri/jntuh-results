@@ -5,6 +5,7 @@ import Result from '../components/definedTypes'
 import { BiArrowBack as BackIcon } from 'react-icons/bi'
 import PageHead from '../components/PageHeader'
 import { RegulationsList } from '../components/RegulationsList'
+import { ExamsLinks } from '../components/ExamsLinks'
 
 export async function getStaticProps() {
   const regularResp = await axios.get(
@@ -123,7 +124,10 @@ export default function Single({ allResults }: Props) {
         </div>
       </div>
       {didUserSelectType ? (
-        <RegulationsList regulations={regulations} handleClick={handleRegulationClick}/>
+        <RegulationsList
+          regulations={regulations}
+          handleClick={handleRegulationClick}
+        />
       ) : null}
       <input
         type='text'
@@ -144,99 +148,28 @@ export default function Single({ allResults }: Props) {
       didUserSelectRegulation &&
       !loading &&
       hallticket.length === 10 ? (
-        <div>
-          <h3 className='mt-6 text-lg font-bold text-center text-white sm:text-2xl'>
-            Regular Results
-          </h3>
-          <div className='flex flex-wrap items-center justify-center max-w-xs mt-6 sm:max-w-4xl sm:w-full'>
-            {regularResults.map((item: Result, idx: number) => (
-              <div key={idx}>
-                {item.exam_name.includes(selectedRegulation) ? (
-                  <Link
-                    href={{
-                      pathname: '/result',
-                      query: {
-                        examCode: item.examCode,
-                        result: item.result,
-                        type: item.type,
-                        etype: item.etype,
-                        degree: item.degree,
-                        hallticket: hallticket.toUpperCase(),
-                        selectedType: regular ? 'regular' : 'supply',
-                      },
-                    }}
-                  >
-                    <div
-                      onClick={() => setLoading(true)}
-                      className='p-6 m-6 text-left text-white border
-                        border-gray-700 cursor-pointer max-w-xs sm:w-96
-                        rounded-xl hover:border-gray-500 transition ease-in-out
-                        delay-150 hover:-translate-y-1 hover:scale-105
-                        hover:bg-blue-900 duration-150'
-                    >
-                      <h3 className='p-6 text-lg font-bold text-center text-sky-400 sm:text-xl'>
-                        {item.release_date}
-                      </h3>
-                      <p className='mt-4 text-center text-m'>
-                        {' '}
-                        {item.exam_name}
-                      </p>
-                    </div>
-                  </Link>
-                ) : null}
-              </div>
-            ))}
-          </div>
-        </div>
+        <ExamsLinks
+          heading={'Regular Results'}
+          hallticket={hallticket}
+          selectedRegulation={selectedRegulation}
+          selectedType={'regular'}
+          loadingFunction={setLoading}
+          resultsLinks={regularResults}
+        />
       ) : null}
       {supply &&
       didUserSelectType &&
       didUserSelectRegulation &&
       !loading &&
       hallticket.length === 10 ? (
-        <div>
-          <h3 className='mt-6 text-lg font-bold text-center text-white sm:text-2xl'>
-            Supply Results
-          </h3>
-          <div className='flex flex-wrap items-center justify-center max-w-xs mt-6 sm:max-w-4xl sm:w-full'>
-            {supplyResults.map((item: Result, idx: number) => (
-              <div key={idx} onClick={() => setLoading(true)}>
-                {item.exam_name.includes(selectedRegulation) ? (
-                  <Link
-                    href={{
-                      pathname: '/result',
-                      query: {
-                        examCode: item.examCode,
-                        result: item.result,
-                        type: item.type,
-                        etype: item.etype,
-                        degree: item.degree,
-                        hallticket: hallticket.toUpperCase(),
-                        selectedType: regular ? 'regular' : 'supply',
-                      },
-                    }}
-                  >
-                    <div
-                      className='p-6 m-6 text-left text-white border
-                        border-gray-700 cursor-pointer w-96 rounded-xl
-                        hover:border-gray-500 transition ease-in-out delay-150
-                        hover:-translate-y-1 hover:scale-105 hover:bg-blue-900
-                        duration-150'
-                    >
-                      <h3 className='p-6 text-lg font-bold text-center text-sky-400 sm:text-xl'>
-                        {item.release_date}
-                      </h3>
-                      <p className='mt-4 text-center text-m'>
-                        {' '}
-                        {item.exam_name}
-                      </p>
-                    </div>
-                  </Link>
-                ) : null}
-              </div>
-            ))}
-          </div>
-        </div>
+        <ExamsLinks
+          heading={'Supply Results'}
+          hallticket={hallticket}
+          selectedRegulation={selectedRegulation}
+          selectedType={'supply'}
+          loadingFunction={setLoading}
+          resultsLinks={supplyResults}
+        />
       ) : null}
     </div>
   )
