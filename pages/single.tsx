@@ -4,7 +4,6 @@ import { useState } from 'react'
 import Result from '../components/definedTypes'
 import { BiArrowBack as BackIcon } from 'react-icons/bi'
 import PageHead from '../components/PageHeader'
-import { RegulationsList } from '../components/RegulationsList'
 import { ExamsLinks } from '../components/ExamsLinks'
 import { FormFilter } from '../components/FormFilter'
 
@@ -75,7 +74,6 @@ export default function Single({ allResults }: Props) {
   const regulations: Array<string> = Array.from(formRegulations)
 
   return (
-    // TODO: Refactor below div into multiple components
     <div className='flex flex-col items-center min-h-screen py-2 overflow-hidden bg-gray-800 font-inter'>
       <PageHead
         title={'Get Single Hallticket Result'}
