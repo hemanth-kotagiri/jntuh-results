@@ -6,6 +6,7 @@ import { BiArrowBack as BackIcon } from 'react-icons/bi'
 import PageHead from '../components/PageHeader'
 import { RegulationsList } from '../components/RegulationsList'
 import { ExamsLinks } from '../components/ExamsLinks'
+import { FormFilter } from '../components/FormFilter'
 
 export async function getStaticProps() {
   const regularResp = await axios.get(
@@ -93,49 +94,13 @@ export default function Single({ allResults }: Props) {
         Select from the below options to filter your desired result. Please
         select only a single regulation at a time.
       </p>
-      <div className='flex flex-row text-xl text-white sm:text-2xl'>
-        <div className='flex flex-row items-center m-2'>
-          <input
-            type='checkbox'
-            value='Regular'
-            name='Regular'
-            onClick={handleRegularClick}
-          />
-          <label
-            className='ml-2 text-xl text-white sm:text-2xl'
-            htmlFor='Regular'
-          >
-            <h3>Regular Results</h3>
-          </label>
-        </div>
-        <div className='flex flex-row items-center m-2'>
-          <input
-            type='checkbox'
-            value='Supply'
-            name='Supply'
-            onClick={handleSupplyClick}
-          />
-          <label
-            className='ml-2 text-xl text-white sm:text-2xl'
-            htmlFor='Supply'
-          >
-            <h3>Supply Results</h3>
-          </label>
-        </div>
-      </div>
-      {didUserSelectType ? (
-        <RegulationsList
-          regulations={regulations}
-          handleClick={handleRegulationClick}
-        />
-      ) : null}
-      <input
-        type='text'
-        name='hallticket'
-        className='text-white bg-gray-800 border border-gray-700 cursor-black'
-        onChange={(e: React.ChangeEvent<HTMLInputElement>) =>
-          handleHallticket(e)
-        }
+      <FormFilter
+        handleRegularClick={handleRegularClick}
+        handleSupplyClick={handleSupplyClick}
+        handleRegulationClick={handleRegulationClick}
+        handleHallticket={handleHallticket}
+        didUserSelectType={didUserSelectType}
+        regulations={regulations}
       />
       {loading ? (
         <h3 className='mt-6 text-lg font-bold text-center text-gray-400 sm:text-2xl'>
