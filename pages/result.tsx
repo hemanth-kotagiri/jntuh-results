@@ -1,7 +1,8 @@
 import axios from 'axios'
 import PageHead from '../components/PageHeader'
+import { StudentInfoAndGPA } from '../components/StudentInfoAndGPA'
 
-export interface queryProps {
+interface queryProps {
   examCode: string
   result: string
   type: string
@@ -11,19 +12,19 @@ export interface queryProps {
   selectedType: string
 }
 
-export interface Props {
+interface Props {
   pathname: string
   query: queryProps
 }
 
-export interface studentInfoProps {
+interface studentInfoProps {
   HTNO: string
   NAME: string
   'FATHER NAME': string
   'COLLEGE CODE': string
 }
 
-export interface Result {
+interface Result {
   subject_code: string
   subject_name: string
   grade_earned: string
@@ -60,6 +61,7 @@ export default function Result({ data }: any) {
   var sgpaInfo
   var studentInfo: studentInfoProps
   var results: Result[]
+  console.log(data.length);
   if (data.length === 3) {
     sgpaInfo = data[0]
     studentInfo = data[1]
@@ -76,41 +78,21 @@ export default function Result({ data }: any) {
         url={'single'}
       />
       <div>
-        <div className='flex flex-col items-center justify-center text-center text-white'>
-          <div className='p-6'>
-            <h1 className='text-xl sm:text-4xl'>{studentInfo['NAME']}</h1>
-            <h1 className='text-lg text-gray-400 sm:text-xl'>
-              {studentInfo['HTNO']}
-            </h1>
-            <hr className='w-full border-gray-700' />
-          </div>
-          {sgpaInfo ? (
-            <div>
-              <h1 className='text-xs text-gray-400 sm:text-lg'>
-                {' '}
-                SGPA/Verdict
-              </h1>
-              <h1
-                className={`text-xl sm:text-2xl ${
-                  sgpaInfo.SGPA !== 'FAIL' ? 'text-green-400' : 'text-red-400'
-                }`}
-              >
-                {sgpaInfo['SGPA']}
-              </h1>
-              <br />
-            </div>
-          ) : null}
-        </div>
+        <StudentInfoAndGPA
+          studentName={studentInfo.NAME}
+          studentHTNO={studentInfo.HTNO}
+          sgpaInfo={sgpaInfo}
+        />
         <div className='flex flex-col items-center'>
           <div className='text-white'>
             {results.map((item: Result, idx: number) => (
-              <div>
+              <div key={idx}>
                 <hr className='border-gray-700' />
                 <div className='flex flex-row justify-between' key={idx}>
                   <h1 className='p-2'>{item.subject_name}</h1>
                   <h1
                     className={`p-2 ${
-                      item.grade_earned === 'F'
+                      item.grade_earned === 'F' || item.grade_earned === "Ab"
                         ? 'text-red-400'
                         : 'text-green-400'
                     }`}
