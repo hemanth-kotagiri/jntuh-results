@@ -14,3 +14,14 @@ export default interface Result {
   type: string;
   id: number;
 }
+
+export default interface SubjectDetails {
+  subject_code: string
+  subject_name: string
+  grade_earned: string
+  subject_credits: string
+  internal_marks?: string
+  external_marks?: string
+  total_marks?: string
+
+}

@@ -1,6 +1,8 @@
 import axios from 'axios'
 import PageHead from '../components/PageHeader'
+import SubjectDetails from "../components/definedTypes"
 import { StudentInfoAndGPA } from '../components/StudentInfoAndGPA'
+import { ResultSubjectsList } from '../components/ResultSubjectsList'
 
 interface queryProps {
   examCode: string
@@ -24,15 +26,6 @@ interface studentInfoProps {
   'COLLEGE CODE': string
 }
 
-interface Result {
-  subject_code: string
-  subject_name: string
-  grade_earned: string
-  subject_credits: string
-  internal_marks?: string
-  external_marks?: string
-  total_marks?: string
-}
 
 export async function getServerSideProps(givenData: Props) {
   const query = givenData.query
@@ -60,8 +53,7 @@ export async function getServerSideProps(givenData: Props) {
 export default function Result({ data }: any) {
   var sgpaInfo
   var studentInfo: studentInfoProps
-  var results: Result[]
-  console.log(data.length);
+  var results: SubjectDetails[]
   if (data.length === 3) {
     sgpaInfo = data[0]
     studentInfo = data[1]
@@ -83,50 +75,7 @@ export default function Result({ data }: any) {
           studentHTNO={studentInfo.HTNO}
           sgpaInfo={sgpaInfo}
         />
-        <div className='flex flex-col items-center'>
-          <div className='text-white'>
-            {results.map((item: Result, idx: number) => (
-              <div key={idx}>
-                <hr className='border-gray-700' />
-                <div className='flex flex-row justify-between' key={idx}>
-                  <h1 className='p-2'>{item.subject_name}</h1>
-                  <h1
-                    className={`p-2 ${
-                      item.grade_earned === 'F' || item.grade_earned === "Ab"
-                        ? 'text-red-400'
-                        : 'text-green-400'
-                    }`}
-                  >
-                    {item.grade_earned}
-                  </h1>
-                </div>
-                {item.external_marks &&
-                item.internal_marks &&
-                item.total_marks ? (
-                  <div className='flex flex-row place-items-start'>
-                    <div className='flex flex-col xm:flex-row items-center justify-center'>
-                      <h1 className='p-3 text-gray-400 text-sm'>
-                        Internal Marks
-                      </h1>
-                      <h1 className='text-sm'>{item.internal_marks}</h1>
-                    </div>
-                    <div className='flex flex-col xm:flex-row items-center justify-center'>
-                      <h1 className='p-3 text-gray-400 text-sm'>
-                        External Marks
-                      </h1>
-                      <h1 className='text-sm'>{item.external_marks}</h1>
-                    </div>
-                    <div className='flex flex-col xm:flex-row items-center justify-center'>
-                      <h1 className='p-3 text-gray-400 text-sm'>Total Marks</h1>
-                      <h1 className='text-sm'>{item.total_marks}</h1>
-                    </div>
-                  </div>
-                ) : null}
-                <hr className='border-gray-700' />
-              </div>
-            ))}
-          </div>
-        </div>
+          <ResultSubjectsList results={results} />
       </div>
     </div>
   )
