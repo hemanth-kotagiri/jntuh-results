@@ -1,6 +1,4 @@
 import axios from 'axios'
-import PageHead from '../components/PageHeader'
-import SubjectDetails from '../components/definedTypes'
 import { ResultSubjectsList } from '../components/ResultSubjectsList'
 import { StudentInfoAndGPA } from '../components/StudentInfoAndGPA'
 import { useEffect } from 'react'
@@ -55,7 +53,9 @@ function refreshPage() {
 export default function MultiResult({ data }: any) {
   useEffect(() => {
     const interval = setInterval(() => {
-      refreshPage()
+      if (data['result'] === 'loading') {
+        refreshPage()
+      }
     }, 5000)
     return () => clearInterval(interval)
   }, [])
@@ -65,7 +65,7 @@ export default function MultiResult({ data }: any) {
       {data['result'] === 'loading' ? (
         <div>
           <h1 className='text-xl sm:text-4xl m-6 p-6 text-white text-center'>
-            Loading the results, please wait...
+            Sit back, relax while the backend fetches the results...
           </h1>
         </div>
       ) : (
