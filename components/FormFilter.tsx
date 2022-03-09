@@ -53,7 +53,7 @@ export const FormFilter = (props : Props) => {
       <input
         type='text'
         name='hallticket'
-        className='text-white bg-gray-800 border border-gray-700 cursor-black'
+        className='text-white bg-gray-800 border border-gray-500 cursor-black'
         onChange={(e: React.ChangeEvent<HTMLInputElement>) =>
           props.handleHallticket(e)
         }
