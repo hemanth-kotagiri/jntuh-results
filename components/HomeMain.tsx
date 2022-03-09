@@ -1,4 +1,3 @@
-import Link from "next/link";
 import HomeHeader from "./HomeHeader";
 import HomeNavLinks from "./HomeNavigationLinks";
 
