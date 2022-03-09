@@ -27,6 +27,11 @@ interface studentInfoProps {
   'COLLEGE CODE': string
 }
 
+
+function timeout(delay: number) {
+    return new Promise( res => setTimeout(res, delay) );
+}
+
 export async function getServerSideProps(givenData: Props) {
   const query = givenData.query
   var url = 'https://results-restapi.herokuapp.com/api/bulk/calculate'
@@ -43,9 +48,7 @@ export async function getServerSideProps(givenData: Props) {
   while (data['result'] === 'loading') {
     const resp = await axios.get(url)
     data = await resp.data
-    setTimeout(() => {
-      console.log('waiting for 5 seconds...')
-    }, 10000)
+    await timeout(5000);
   }
   return {
     props: {

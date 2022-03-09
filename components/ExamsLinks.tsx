@@ -54,7 +54,7 @@ export const ExamsLinks = (props: Props) => {
                           type: item.type,
                           etype: item.etype,
                           degree: item.degree,
-                      selectedType: props.selectedType,
+                          selectedType: props.selectedType,
                           fromHallticket: props.fromHallticket!.toUpperCase(),
                           toHallticket: props.toHallticket!.toUpperCase(),
                         },
