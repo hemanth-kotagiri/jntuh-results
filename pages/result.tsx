@@ -40,7 +40,6 @@ export async function getServerSideProps(givenData: Props) {
   url += '&type=' + query.type
   url += '&etype=' + query.etype
   url += '&degree=' + query.degree
-  console.log(url)
   const resp = await axios.get(url)
   const data = await resp.data
   return {

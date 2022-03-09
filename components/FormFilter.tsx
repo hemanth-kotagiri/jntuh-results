@@ -5,13 +5,17 @@ export interface Props {
   handleRegularClick: MouseEventHandler<HTMLInputElement>
   handleSupplyClick: MouseEventHandler<HTMLInputElement>
   handleRegulationClick: MouseEventHandler<HTMLInputElement>
-  handleHallticket: ChangeEventHandler<HTMLInputElement>
+  handleHallticket?: ChangeEventHandler<HTMLInputElement>
+
+  handleFromHallticket?: ChangeEventHandler<HTMLInputElement>
+  handleToHallticket?: ChangeEventHandler<HTMLInputElement>
+  multi: boolean
 
   didUserSelectType: boolean
   regulations: string[]
 }
 
-export const FormFilter = (props : Props) => {
+export const FormFilter = (props: Props) => {
   return (
     <div className='flex flex-col items-center'>
       <div className='flex flex-row text-xl text-white sm:text-2xl'>
@@ -50,14 +54,37 @@ export const FormFilter = (props : Props) => {
           handleClick={props.handleRegulationClick}
         />
       ) : null}
-      <input
-        type='text'
-        name='hallticket'
-        className='text-white bg-gray-800 border border-gray-500 cursor-black'
-        onChange={(e: React.ChangeEvent<HTMLInputElement>) =>
-          props.handleHallticket(e)
-        }
-      />
+      {props.multi === false ? (
+        <input
+          type='text'
+          name='hallticket'
+          className='text-white bg-gray-800 border border-gray-500 cursor-black'
+          onChange={(e: React.ChangeEvent<HTMLInputElement>) =>
+            props.handleHallticket!(e)
+          }
+        />
+      ) : (
+        <div className='flex flex-row items-center'>
+          <h1 className='text-white'>From </h1>
+          <input
+            type='text'
+            name='hallticket-from'
+            className='text-white bg-gray-800 border border-gray-500 cursor-black m-2'
+            onChange={(e: React.ChangeEvent<HTMLInputElement>) =>
+              props.handleFromHallticket!(e)
+            }
+          />
+          <h1 className='text-white'>To </h1>
+          <input
+            type='text'
+            name='hallticket-to'
+            className='text-white bg-gray-800 border border-gray-500 cursor-black m-2'
+            onChange={(e: React.ChangeEvent<HTMLInputElement>) =>
+              props.handleToHallticket!(e)
+            }
+          />
+        </div>
+      )}
     </div>
   )
 }

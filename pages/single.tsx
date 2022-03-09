@@ -99,6 +99,7 @@ export default function Single({ allResults }: Props) {
         handleHallticket={handleHallticket}
         didUserSelectType={didUserSelectType}
         regulations={regulations}
+        multi={false}
       />
       {loading ? (
         <h3 className='mt-6 text-lg font-bold text-center text-gray-400 sm:text-2xl'>
@@ -118,6 +119,7 @@ export default function Single({ allResults }: Props) {
           selectedType={'regular'}
           loadingFunction={setLoading}
           resultsLinks={regularResults}
+          multi={false}
         />
       ) : null}
       {supply &&
@@ -132,6 +134,7 @@ export default function Single({ allResults }: Props) {
           selectedType={'supply'}
           loadingFunction={setLoading}
           resultsLinks={supplyResults}
+          multi={false}
         />
       ) : null}
     </div>

@@ -4,37 +4,60 @@ import Result from '../components/definedTypes'
 
 export interface Props {
   heading: string
-  hallticket: string
+  hallticket?: string
   selectedRegulation: string
   selectedType: string
   loadingFunction: Function
   resultsLinks: Result[]
+
+  multi: boolean
+  fromHallticket?: string
+  toHallticket?: string
 }
 
-
 export const ExamsLinks = (props: Props) => {
+  let pathName: string
+  if (props.multi !== true) {
+    pathName = '/result'
+  } else {
+    pathName = '/multiresult'
+  }
   return (
     <div>
       <h3 className='mt-6 text-lg font-bold text-center text-white sm:text-2xl'>
         {props.heading}
       </h3>
-      <div className='flex flex-wrap items-center justify-center max-w-xs mt-6
-        sm:max-w-4xl sm:w-full'>
+      <div
+        className='flex flex-wrap items-center justify-center max-w-xs mt-6
+        sm:max-w-4xl sm:w-full'
+      >
         {props.resultsLinks.map((item: Result, idx: number) => (
           <div key={idx}>
             {item.exam_name.includes(props.selectedRegulation) ? (
               <Link
                 href={{
-                  pathname: '/result',
-                  query: {
-                    examCode: item.examCode,
-                    result: item.result,
-                    type: item.type,
-                    etype: item.etype,
-                    degree: item.degree,
-                    hallticket: props.hallticket.toUpperCase(),
-                    selectedType: props.selectedType,
-                  },
+                  pathname: pathName,
+                  query:
+                    props.multi === false
+                      ? {
+                          examCode: item.examCode,
+                          result: item.result,
+                          type: item.type,
+                          etype: item.etype,
+                          degree: item.degree,
+                          hallticket: props.hallticket!.toUpperCase(),
+                          selectedType: props.selectedType,
+                        }
+                      : {
+                          examCode: item.examCode,
+                          result: item.result,
+                          type: item.type,
+                          etype: item.etype,
+                          degree: item.degree,
+                      selectedType: props.selectedType,
+                          fromHallticket: props.fromHallticket!.toUpperCase(),
+                          toHallticket: props.toHallticket!.toUpperCase(),
+                        },
                 }}
               >
                 <div
