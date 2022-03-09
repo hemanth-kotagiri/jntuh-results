@@ -64,7 +64,7 @@ export const FormFilter = (props: Props) => {
           }
         />
       ) : (
-        <div className='flex flex-row items-center'>
+        <div className='flex sm:flex-row flex-col items-center'>
           <h1 className='text-white'>From </h1>
           <input
             type='text'
