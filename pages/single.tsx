@@ -6,6 +6,7 @@ import { BiArrowBack as BackIcon } from 'react-icons/bi'
 import PageHead from '../components/PageHeader'
 import { ExamsLinks } from '../components/ExamsLinks'
 import { FormFilter } from '../components/FormFilter'
+import { RingLoader } from 'react-spinners'
 
 export async function getStaticProps() {
   const regularResp = await axios.get(
@@ -102,9 +103,9 @@ export default function Single({ allResults }: Props) {
         multi={false}
       />
       {loading ? (
-        <h3 className='mt-6 text-lg font-bold text-center text-gray-400 sm:text-2xl'>
-          Loading, Please wait...
-        </h3>
+        <div className='m-6 flex items-center justify-center'>
+          <RingLoader color={"#ffffff"} loading={true} size={50}/>
+        </div>
       ) : null}
 
       {regular &&
