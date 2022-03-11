@@ -76,7 +76,7 @@ export default function MultiResult({ data }: any) {
     return () => clearInterval(interval)
   }, [])
 
-  let statisticsData: singleHallticketProps[] = [];
+  let statisticsData: singleHallticketProps[] = []
   if (data['result'] !== 'loading') {
     statisticsData = data.filter((item: any) => item.length > 1)
   }
@@ -95,16 +95,18 @@ export default function MultiResult({ data }: any) {
       ) : (
         <div className='bg-gray-800'>
           {/* render statistics here */}
-          <div className='flex flex-col items-center border border-black'>
-            <div className='w-full sm:w-2/4'>
-              <RenderOverAllPassFailPieChart props={statisticsData} />
+          {data.length ? (
+            <div className='flex flex-col items-center border border-black'>
+              <div className='w-full sm:w-2/4'>
+                <RenderOverAllPassFailPieChart props={statisticsData} />
+              </div>
+              <div className='w-full lg:w-2/4'>
+                <RenderEachSubjectOverAllPassFailBarChart
+                  props={statisticsData}
+                />
+              </div>
             </div>
-            <div className='w-full lg:w-2/4'>
-              <RenderEachSubjectOverAllPassFailBarChart
-                props={statisticsData}
-              />
-            </div>
-          </div>
+          ) : null}
           {data.length ? (
             data.map((item: any, idx: number) => (
               <div
@@ -124,7 +126,7 @@ export default function MultiResult({ data }: any) {
               </div>
             ))
           ) : (
-            <div>
+            <div className='flex flex-col items-center min-h-screen overflow-hidden text-center bg-gray-800 font-inter'>
               <Link href='/'>
                 <div className='flex flex-row items-center justify-center cursor-pointer'>
                   <BackIcon size='1.5rem' className='mt-6 mr-2 text-gray-400' />
