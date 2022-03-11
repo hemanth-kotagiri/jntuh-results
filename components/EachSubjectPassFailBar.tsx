@@ -19,6 +19,11 @@ function round(value: number, precision: number) {
   return Math.round(value * multiplier) / multiplier
 }
 
+interface mapProps {
+  key: string
+  value: number
+}
+
 export function RenderEachSubjectOverAllPassFailBarChart({ props }: any) {
   let subjectLables: string[] = []
   props[0][2].forEach((item: any) => {
@@ -58,12 +63,15 @@ export function RenderEachSubjectOverAllPassFailBarChart({ props }: any) {
   let eachSubjectFailPercentages: number[] = []
 
   let total = props.length
-  for(const [key, value] of Object.entries(eachSubjectFailMap)){
-    eachSubjectFailPercentages.push(round((value/total)*100, 2));
-  }
-  for(const [key, value] of Object.entries(eachSubjectPassMap)){
-    eachSubjectPassPercentages.push(round((value/total)*100, 2));
-  }
+
+  Object.entries(eachSubjectFailMap).forEach((item: any) => {
+    eachSubjectFailPercentages.push(round((item[1]/total)*100, 2));
+  })
+
+  Object.entries(eachSubjectPassMap).forEach((item: any) => {
+    eachSubjectPassPercentages.push(round((item[1]/total)*100, 2));
+  })
+
 
   console.log(eachSubjectFailPercentages)
   console.log(eachSubjectPassPercentages)
