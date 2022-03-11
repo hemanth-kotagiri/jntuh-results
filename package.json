@@ -8,13 +8,16 @@
     "deploy": "yarn run build && gh-pages -b deploy"
   },
   "dependencies": {
+    "chart.js": "^3.7.1",
     "next": "latest",
     "nextjs-progressbar": "^0.0.14",
     "react": "^17.0.2",
+    "react-chartjs-2": "^4.0.1",
     "react-dom": "^17.0.2",
     "react-spinners": "^0.11.0"
   },
   "devDependencies": {
+    "@faker-js/faker": "^6.0.0-beta.0",
     "@types/node": "17.0.4",
     "@types/react": "17.0.38",
     "autoprefixer": "^10.4.0",

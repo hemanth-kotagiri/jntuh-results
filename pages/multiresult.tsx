@@ -5,6 +5,9 @@ import { useEffect } from 'react'
 import { HashLoader } from 'react-spinners'
 import Link from 'next/link'
 import { BiArrowBack as BackIcon } from 'react-icons/bi'
+import SubjectDetails from '../components/definedTypes'
+import RenderOverAllPassFailPieChart from '../components/OverAllPassFailPieChart'
+import { RenderEachSubjectOverAllPassFailBarChart } from '../components/EachSubjectPassFailBar'
 
 interface queryProps {
   examCode: string
@@ -20,13 +23,6 @@ interface queryProps {
 interface Props {
   pathname: string
   query: queryProps
-}
-
-interface studentInfoProps {
-  HTNO: string
-  NAME: string
-  'FATHER NAME': string
-  'COLLEGE CODE': string
 }
 
 export async function getServerSideProps(givenData: Props) {
@@ -49,6 +45,23 @@ export async function getServerSideProps(givenData: Props) {
   }
 }
 
+interface studentInfoProps {
+  HTNO: string
+  NAME: string
+  'FATHER NAME': string
+  'COLLEGE CODE': string
+}
+
+interface sgpaInfoProps {
+  SGPA: string | number
+}
+
+interface singleHallticketProps {
+  sgpaDetails: sgpaInfoProps
+  studentDetails: studentInfoProps
+  resultDetails: SubjectDetails[]
+}
+
 function refreshPage() {
   window.location.reload()
 }
@@ -63,10 +76,16 @@ export default function MultiResult({ data }: any) {
     return () => clearInterval(interval)
   }, [])
 
+  let statisticsData: singleHallticketProps[] = [];
+  if (data['result'] !== 'loading') {
+    statisticsData = data.filter((item: any) => item.length > 1)
+  }
+  // console.log(statisticsData);
+
   return (
-    <div className='min-h-screen overflow-hidden text-center bg-gray-800 font-inter'>
+    <div>
       {data['result'] === 'loading' ? (
-        <div className='flex flex-col items-center'>
+        <div className='flex flex-col items-center min-h-screen overflow-hidden text-center bg-gray-800 font-inter'>
           <h1 className='text-xl sm:text-2xl mt-6 mb-6 text-center text-gray-400'>
             Sit back, relax while the backend fetches all the results
           </h1>
@@ -74,10 +93,24 @@ export default function MultiResult({ data }: any) {
           <HashLoader color={'#ffffff'} loading={true} size={30} />
         </div>
       ) : (
-        <div className='min-h-screen overflow-hidden text-center bg-gray-800 font-inter'>
+        <div className='bg-gray-800'>
+          {/* render statistics here */}
+          <div className='flex flex-col items-center border border-black'>
+            <div className='w-full sm:w-2/4'>
+              <RenderOverAllPassFailPieChart props={statisticsData} />
+            </div>
+            <div className='w-full lg:w-2/4'>
+              <RenderEachSubjectOverAllPassFailBarChart
+                props={statisticsData}
+              />
+            </div>
+          </div>
           {data.length ? (
             data.map((item: any, idx: number) => (
-              <div key={idx}>
+              <div
+                key={idx}
+                className='overflow-hidden text-center bg-gray-800 font-inter'
+              >
                 {item.length > 1 ? (
                   <div>
                     <StudentInfoAndGPA
