@@ -96,7 +96,7 @@ export default function MultiResult({ data }: any) {
         <div className='bg-gray-800'>
           {/* render statistics here */}
           {data.length ? (
-            <div className='flex flex-col items-center border border-black'>
+            <div className='flex flex-col items-center'>
               <div className='w-full sm:w-2/4'>
                 <RenderOverAllPassFailPieChart props={statisticsData} />
               </div>
