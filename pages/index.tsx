@@ -21,7 +21,7 @@ const Home = () => {
         <meta
           property="og:image"
           content={
-            "https://raw.githubusercontent.com/hemanth-kotagiri/jntuh-results-stats/main/public/home.jpg?token=GHSAT0AAAAAABOOG2ZRUKPH7RQYTSFQLRKCYP2NTPQ"
+            "https://raw.githubusercontent.com/hemanth-kotagiri/jntuh-results-stats/main/homepage.jpg"
           }
         />
       </Head>
