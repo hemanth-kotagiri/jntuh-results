@@ -26,9 +26,9 @@ interface mapProps {
 
 export function RenderEachSubjectOverAllPassFailBarChart({ props }: any) {
   let subjectLables: string[] = []
-  props[0][2].forEach((item: any) => {
-    subjectLables.push(item.subject_name)
-  })
+  // props[0][2].forEach((item: any) => {
+  //   subjectLables.push(item.subject_name)
+  // })
 
   var eachSubjectPassMap: any = new Map()
   var eachSubjectFailMap: any = new Map()
@@ -44,6 +44,7 @@ export function RenderEachSubjectOverAllPassFailBarChart({ props }: any) {
         } else {
           eachSubjectFailMap[subject.subject_name] = 1
           eachSubjectPassMap[subject.subject_name] = 0
+          subjectLables.push(subject.subject_name)
         }
       } else {
         if (subject.subject_name in eachSubjectPassMap) {
@@ -51,6 +52,7 @@ export function RenderEachSubjectOverAllPassFailBarChart({ props }: any) {
         } else {
           eachSubjectPassMap[subject.subject_name] = 1
           eachSubjectFailMap[subject.subject_name] = 0
+          subjectLables.push(subject.subject_name)
         }
       }
     })
@@ -62,13 +64,13 @@ export function RenderEachSubjectOverAllPassFailBarChart({ props }: any) {
   let eachSubjectPassPercentages: number[] = []
   let eachSubjectFailPercentages: number[] = []
 
-  let total = props.length
-
   Object.entries(eachSubjectFailMap).forEach((item: any) => {
+    const total = eachSubjectFailMap[item[0]] + eachSubjectPassMap[item[0]]
     eachSubjectFailPercentages.push(round((item[1]/total)*100, 2));
   })
 
   Object.entries(eachSubjectPassMap).forEach((item: any) => {
+    const total = eachSubjectFailMap[item[0]] + eachSubjectPassMap[item[0]]
     eachSubjectPassPercentages.push(round((item[1]/total)*100, 2));
   })
 

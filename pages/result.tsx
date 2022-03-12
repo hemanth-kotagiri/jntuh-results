@@ -1,8 +1,10 @@
 import axios from 'axios'
 import PageHead from '../components/PageHeader'
-import SubjectDetails from "../components/definedTypes"
+import SubjectDetails from '../components/definedTypes'
 import { StudentInfoAndGPA } from '../components/StudentInfoAndGPA'
 import { ResultSubjectsList } from '../components/ResultSubjectsList'
+import { BiArrowBack as BackIcon } from 'react-icons/bi'
+import Link from 'next/link'
 
 interface queryProps {
   examCode: string
@@ -26,7 +28,6 @@ interface studentInfoProps {
   'COLLEGE CODE': string
 }
 
-
 export async function getServerSideProps(givenData: Props) {
   const query = givenData.query
   var url = 'https://results-restapi.herokuapp.com/api'
@@ -40,8 +41,17 @@ export async function getServerSideProps(givenData: Props) {
   url += '&type=' + query.type
   url += '&etype=' + query.etype
   url += '&degree=' + query.degree
-  const resp = await axios.get(url)
-  const data = await resp.data
+  let data
+  try {
+    const resp = await axios.get(url)
+    data = await resp.data
+  } catch (e) {
+    return {
+      props: {
+        data: 'error',
+      },
+    }
+  }
   return {
     props: {
       data: data,
@@ -53,6 +63,27 @@ export default function Result({ data }: any) {
   var sgpaInfo
   var studentInfo: studentInfoProps
   var results: SubjectDetails[]
+  if (data === 'error') {
+    return (
+      <div className='flex flex-col items-center min-h-screen overflow-hidden text-center bg-gray-800 font-inter'>
+        <Link href='/single'>
+          <div className='flex flex-row items-center justify-center cursor-pointer'>
+            <BackIcon size='1.5rem' className='mt-6 mr-2 text-gray-400' />
+            <h3 className='mt-6 text-lg font-bold text-white sm:text-2xl'>
+              Go Back
+            </h3>
+          </div>
+        </Link>
+        <h1 className='text-xl sm:text-2xl mt-6 mb-6 text-center text-gray-400'>
+          Oops, looks it's an invalid hallticket!
+        </h1>
+        <h2 className='text-white text-center'>
+          JNTUH Servers didn't respond with any data, so please try for a valid
+          exam.
+        </h2>
+      </div>
+    )
+  }
   if (data.length === 3) {
     sgpaInfo = data[0]
     studentInfo = data[1]
@@ -74,7 +105,7 @@ export default function Result({ data }: any) {
           studentHTNO={studentInfo.HTNO}
           sgpaInfo={sgpaInfo}
         />
-          <ResultSubjectsList results={results} />
+        <ResultSubjectsList results={results} />
       </div>
     </div>
   )
