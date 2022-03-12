@@ -26,12 +26,11 @@ interface mapProps {
 
 export function RenderEachSubjectOverAllPassFailBarChart({ props }: any) {
   let subjectLables: string[] = []
-  // props[0][2].forEach((item: any) => {
-  //   subjectLables.push(item.subject_name)
-  // })
+  let means: number[] = []
 
-  var eachSubjectPassMap: any = new Map()
-  var eachSubjectFailMap: any = new Map()
+  let eachSubjectPassMap: any = new Map()
+  let eachSubjectFailMap: any = new Map()
+  let meanSubjectMap: any = new Map()
 
   // each item is a list of subjects
   props.forEach((item: any) => {
@@ -55,46 +54,63 @@ export function RenderEachSubjectOverAllPassFailBarChart({ props }: any) {
           subjectLables.push(subject.subject_name)
         }
       }
+      if ('total_marks' in subject) {
+        if (subject.subject_name in meanSubjectMap) {
+          meanSubjectMap[subject.subject_name] += parseInt(subject.total_marks)
+        } else {
+          meanSubjectMap[subject.subject_name] = parseInt(subject.total_marks)
+        }
+      }
     })
   })
 
-  console.log(eachSubjectFailMap)
-  console.log(eachSubjectPassMap)
+  console.log('FAIL MAP: ', eachSubjectFailMap)
+  console.log('PASS MAP: ', eachSubjectPassMap)
+  console.log('MEAN MAP: ', meanSubjectMap)
 
   let eachSubjectPassPercentages: number[] = []
   let eachSubjectFailPercentages: number[] = []
 
   Object.entries(eachSubjectFailMap).forEach((item: any) => {
     const total = eachSubjectFailMap[item[0]] + eachSubjectPassMap[item[0]]
-    eachSubjectFailPercentages.push(round((item[1]/total)*100, 2));
+    eachSubjectFailPercentages.push(round((item[1] / total) * 100, 2))
   })
 
   Object.entries(eachSubjectPassMap).forEach((item: any) => {
     const total = eachSubjectFailMap[item[0]] + eachSubjectPassMap[item[0]]
-    eachSubjectPassPercentages.push(round((item[1]/total)*100, 2));
+    eachSubjectPassPercentages.push(round((item[1] / total) * 100, 2))
   })
-
+  Object.entries(meanSubjectMap).forEach((item: any) => {
+    means.push(round(item[1] / props.length, 2))
+  })
 
   console.log(eachSubjectFailPercentages)
   console.log(eachSubjectPassPercentages)
-  // eachSubjectFailMap.forEach((value: any, key: any, eachSubjectFailMap: any) => {
-  //   console.log(value/ total);
-  // })
-
-  let data = {
-    labels: subjectLables,
-    datasets: [
+  console.log(means)
+  let datasets = [
       {
         label: 'Fail',
-        data: eachSubjectFailPercentages, 
+        data: eachSubjectFailPercentages,
         backgroundColor: 'rgba(255, 99, 132, 0.5)',
       },
       {
         label: 'Pass',
-        data: eachSubjectPassPercentages, 
+        data: eachSubjectPassPercentages,
         backgroundColor: 'rgba(53, 162, 235, 0.5)',
       },
-    ],
+  ]
+  const meanDataSet = {
+        label: "Mean Total Marks",
+        data: means,
+        backgroundColor: 'rgba(50, 73, 173, 0.5)'
+}
+  if(means.length){
+     datasets = [...datasets, meanDataSet]
+  }
+
+  let data = {
+    labels: subjectLables,
+    datasets: datasets,
   }
   const options = {
     responsive: true,
