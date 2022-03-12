@@ -19,10 +19,12 @@ function round(value: number, precision: number) {
   return Math.round(value * multiplier) / multiplier
 }
 
-interface mapProps {
-  key: string
-  value: number
-}
+// interface mapProps {
+//   key: string
+//   value: number
+// }
+
+
 
 export function RenderEachSubjectOverAllPassFailBarChart({ props }: any) {
   let subjectLables: string[] = []
@@ -32,7 +34,7 @@ export function RenderEachSubjectOverAllPassFailBarChart({ props }: any) {
   let eachSubjectFailMap: any = new Map()
   let meanSubjectMap: any = new Map()
 
-  // each item is a list of subjects
+  // each item is a list of sgpa, student_details, subjects
   props.forEach((item: any) => {
     const subjectsList = item[2]
     subjectsList.forEach((subject: any) => {
@@ -56,9 +58,13 @@ export function RenderEachSubjectOverAllPassFailBarChart({ props }: any) {
       }
       if ('total_marks' in subject) {
         if (subject.subject_name in meanSubjectMap) {
-          meanSubjectMap[subject.subject_name] += parseInt(subject.total_marks)
+          meanSubjectMap[subject.subject_name]["sum"] += parseInt(subject.total_marks)
+          meanSubjectMap[subject.subject_name]["count"] += 1
         } else {
-          meanSubjectMap[subject.subject_name] = parseInt(subject.total_marks)
+          meanSubjectMap[subject.subject_name] = {
+            "sum": parseInt(subject.total_marks),
+            "count": 1
+          }
         }
       }
     })
@@ -81,31 +87,31 @@ export function RenderEachSubjectOverAllPassFailBarChart({ props }: any) {
     eachSubjectPassPercentages.push(round((item[1] / total) * 100, 2))
   })
   Object.entries(meanSubjectMap).forEach((item: any) => {
-    means.push(round(item[1] / props.length, 2))
+    means.push(round(item[1]["sum"] / item[1]["count"], 2))
   })
 
   console.log(eachSubjectFailPercentages)
   console.log(eachSubjectPassPercentages)
   console.log(means)
   let datasets = [
-      {
-        label: 'Fail',
-        data: eachSubjectFailPercentages,
-        backgroundColor: 'rgba(255, 99, 132, 0.5)',
-      },
-      {
-        label: 'Pass',
-        data: eachSubjectPassPercentages,
-        backgroundColor: 'rgba(53, 162, 235, 0.5)',
-      },
+    {
+      label: 'Fail',
+      data: eachSubjectFailPercentages,
+      backgroundColor: 'rgba(255, 99, 132, 0.5)',
+    },
+    {
+      label: 'Pass',
+      data: eachSubjectPassPercentages,
+      backgroundColor: 'rgba(53, 162, 235, 0.5)',
+    },
   ]
   const meanDataSet = {
-        label: "Mean Total Marks",
-        data: means,
-        backgroundColor: 'rgba(50, 73, 173, 0.5)'
-}
-  if(means.length){
-     datasets = [...datasets, meanDataSet]
+    label: "Mean Total Marks",
+    data: means,
+    backgroundColor: 'rgba(50, 73, 173, 0.5)'
+  }
+  if (means.length) {
+    datasets = [...datasets, meanDataSet]
   }
 
   let data = {

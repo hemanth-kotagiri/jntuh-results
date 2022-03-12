@@ -66,6 +66,11 @@ export default function Result({ data }: any) {
   if (data === 'error') {
     return (
       <div className='flex flex-col items-center min-h-screen overflow-hidden text-center bg-gray-800 font-inter'>
+        <PageHead
+          title={'Error'}
+          description={'Error: Hallticket not found'}
+          url={'result'}
+        />
         <Link href='/single'>
           <div className='flex flex-row items-center justify-center cursor-pointer'>
             <BackIcon size='1.5rem' className='mt-6 mr-2 text-gray-400' />
