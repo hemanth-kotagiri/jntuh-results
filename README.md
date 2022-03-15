@@ -23,9 +23,10 @@ such as overall pass to failure percentages and subject wise mean total marks.
 
 ## Features
 
-- Ability to filter the exam links as you want. (The only reason why I started this project).
-- Result of a single student along with the SGPA calculated just by the hallticket number.
-- Results of multiple students given a specific range of halltickets along with statistics.
+- Filter the exam links as you want - Regulation(s), and Exam tpye. (The only
+  reason why I started this project).
+- Result of a single student along with the SGPA calculated by using the hallticket number.
+- Results of multiple students given a specific range of halltickets along with basic statistics such as
   - Overall pass/fail ratio of the given range of halltickets.
   - Bar chart representing each subject's pass to fail ratio along with mean total marks for eligible exams.
 
@@ -57,7 +58,7 @@ Start the server
   yarn run dev
 ```
 
-Start the production build
+Start the production build server
 
 ```bash
   yarn run start
