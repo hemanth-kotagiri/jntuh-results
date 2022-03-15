@@ -41,6 +41,7 @@ export default ({ notifications }: Props) => {
     <div className="overflow-hidden flex flex-col items-center justify-center min-h-screen py-2 bg-gray-800 font-inter">
       <Head>
         <title>JNTUH Results Notifications</title>
+        <link rel="icon" href="/financial.ico" />
         <meta
           property="og:url"
           content="https://jntuh-results-stats.vercel.app/single"
