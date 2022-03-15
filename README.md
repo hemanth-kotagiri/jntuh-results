@@ -16,7 +16,7 @@
 
 A place where you can get result(s) of all semesters, and regulations. All that
 you need is your hallticket to fetch the results along with the SGPA for that
-specific exam. Along with fetching result a single hallticket, you can also
+specific exam. Along with fetching result of a single hallticket, you can also
 fetch results of students given a **_specific, valid range_** of hallticket
 numbers. This feature of the website also provides you with basic statistics
 such as overall pass to failure percentages and subject wise mean total marks.
