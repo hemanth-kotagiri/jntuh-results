@@ -22,7 +22,7 @@ export async function getStaticProps() {
     props: {
       allResults: [regularResults, supplyResults],
     },
-    revalidate: 60 * 30, // 30 minutes
+    revalidate: 60 * 31, // 31 minutes
   }
 }
 
