@@ -66,7 +66,7 @@ export default ({ notifications }: Props) => {
         {notifications.map((item: Notification, idx: number) => (
           <div
             key={idx}
-            className="text-white p-6 mt-6 text-left border border-gray-700 w-96 rounded-xl"
+            className="shadow-2xl text-white p-6 mt-6 text-left border border-gray-700 w-96 rounded-xl"
           >
             <h3 className="text-sky-400 text-lg sm:text-xl font-bold p-6 text-center">
               {item.notification_date}

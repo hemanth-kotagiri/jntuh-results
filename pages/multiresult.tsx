@@ -85,7 +85,11 @@ export default function MultiResult({ data }: any) {
 
   return (
     <div>
-      <PageHead title={'Multiple Results Statistics'} description={'Result of more than one hallticket with statistics'} url={'multiresult'} />
+      <PageHead
+        title={'Multiple Results Statistics'}
+        description={'Result of more than one hallticket with statistics'}
+        url={'multiresult'}
+      />
       {data['result'] === 'loading' ? (
         <div className='flex flex-col items-center min-h-screen overflow-hidden text-center bg-gray-800 font-inter'>
           <h1 className='text-xl sm:text-2xl mt-6 mb-6 text-center text-gray-400'>

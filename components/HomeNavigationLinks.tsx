@@ -34,7 +34,7 @@ const HomeNavLinks = () => {
     <div className="flex flex-wrap items-center justify-around max-w-4xl mt-6 sm:w-full">
       {links.map((link: Link, idx: number) => (
         <Link href={link.route} key={idx}>
-          <a className="max-w-xs p-6 mt-6 text-left border border-gray-600 md:w-96 rounded-xl hover:border-gray-500 transition ease-in-out delay-150 hover:-translate-y-1 hover:scale-105 hover:bg-blue-900 duration-300">
+          <a className="shadow-2xl max-w-xs p-6 mt-6 text-left border border-gray-600 md:w-96 rounded-xl hover:border-gray-500 transition ease-in-out delay-150 hover:-translate-y-1 hover:scale-105 hover:bg-blue-900 duration-300">
             <h3 className="text-white text-lg sm:text-2xl font-bold">
               {link.desctiption[0]} &rarr;
             </h3>
@@ -47,7 +47,7 @@ const HomeNavLinks = () => {
       <a
         target="_blank"
         href="https://hemanth-kotagiri.github.io/sgpa-rest-api-docs/"
-        className="max-w-xs p-6 mt-6 text-left border border-gray-600 md:w-96 rounded-xl hover:border-gray-500 transition ease-in-out delay-150 hover:-translate-y-1 hover:scale-105 hover:bg-blue-900 duration-300"
+        className="shadow-2xl max-w-xs p-6 mt-6 text-left border border-gray-600 md:w-96 rounded-xl hover:border-gray-500 transition ease-in-out delay-150 hover:-translate-y-1 hover:scale-105 hover:bg-blue-900 duration-300"
       >
         <h3 className="text-white text-lg sm:text-2xl font-bold">
           API Documentation &rarr;
