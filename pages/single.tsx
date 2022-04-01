@@ -56,7 +56,7 @@ export default function Single({ allResults }: Props) {
 
   const handleRegulationClick = (e: React.FormEvent<HTMLInputElement>) => {
     setSelectedRegulation(e.currentTarget.value)
-    setDidUserSelectRegulation(!didUserSelectRegulation)
+    if(!didUserSelectRegulation) setDidUserSelectRegulation(!didUserSelectRegulation)
   }
 
   const handleSupplyClick = () => {

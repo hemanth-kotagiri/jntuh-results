@@ -24,10 +24,11 @@ export const FormFilter = (props: Props) => {
             type='checkbox'
             value='Regular'
             name='Regular'
+            id="Regular"
             onClick={props.handleRegularClick}
           />
           <label
-            className='ml-2 text-xl text-white sm:text-2xl'
+            className='ml-2 text-xl text-white sm:text-2xl cursor-pointer'
             htmlFor='Regular'
           >
             <h3>Regular Results</h3>
@@ -38,11 +39,12 @@ export const FormFilter = (props: Props) => {
             type='checkbox'
             value='Supply'
             name='Supply'
+            id="supply"
             onClick={props.handleSupplyClick}
           />
           <label
-            className='ml-2 text-xl text-white sm:text-2xl'
-            htmlFor='Supply'
+            className='ml-2 text-xl text-white sm:text-2xl cursor-pointer'
+            htmlFor='supply'
           >
             <h3>Supply Results</h3>
           </label>
