@@ -94,7 +94,7 @@ export default function MultipleResults({ allResults }: Props) {
           </h3>
         </div>
       </Link>
-      <p className='m-6 text-base text-gray-400 sm:text-xl'>
+      <p className='m-6 text-base text-center text-gray-400 sm:text-xl'>
         Select from the below options to filter your desired result. Please
         select only a single regulation at a time.
       </p>

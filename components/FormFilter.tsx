@@ -18,7 +18,7 @@ export interface Props {
 export const FormFilter = (props: Props) => {
   return (
     <div className='flex flex-col items-center'>
-      <div className='flex flex-row text-xl text-white sm:text-2xl'>
+      <div className='flex flex-col sm:flex-row text-xl text-white sm:text-2xl'>
         <div className='flex flex-row items-center m-2'>
           <input
             type='checkbox'
@@ -73,7 +73,7 @@ export const FormFilter = (props: Props) => {
             type='text'
             name='hallticket-from'
             placeholder='e.g: 185U1A0560'
-            className='text-white bg-gray-800 border border-gray-500 cursor-black m-2'
+            className='text-white text-center bg-gray-800 border border-gray-500 cursor-black m-2'
             onChange={(e: React.ChangeEvent<HTMLInputElement>) =>
               props.handleFromHallticket!(e)
             }
@@ -83,7 +83,7 @@ export const FormFilter = (props: Props) => {
             type='text'
             name='hallticket-to'
             placeholder='e.g: 185U1A05B7'
-            className='text-white bg-gray-800 border border-gray-500 cursor-black m-2'
+            className='text-white text-center bg-gray-800 border border-gray-500 cursor-black m-2'
             onChange={(e: React.ChangeEvent<HTMLInputElement>) =>
               props.handleToHallticket!(e)
             }
