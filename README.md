@@ -59,7 +59,7 @@ Start the server
   yarn run dev
 ```
 
-Start the production build server
+Run the production build
 
 ```bash
   yarn run start
