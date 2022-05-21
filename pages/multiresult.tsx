@@ -73,7 +73,7 @@ export default function MultiResult({ data }: any) {
       if (data['result'] === 'loading') {
         refreshPage()
       }
-    }, 2000)
+    }, 5000)
     return () => clearInterval(interval)
   }, [])
 
