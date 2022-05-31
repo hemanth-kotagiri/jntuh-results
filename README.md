@@ -1,6 +1,6 @@
 # JNTUH Results Statistics
 
-<img src="./homepage.jpg">
+<img src="./homepage.png">
 <br>
 <br>
 
