@@ -56,7 +56,8 @@ export default function Single({ allResults }: Props) {
 
   const handleRegulationClick = (e: React.FormEvent<HTMLInputElement>) => {
     setSelectedRegulation(e.currentTarget.value)
-    if(!didUserSelectRegulation) setDidUserSelectRegulation(!didUserSelectRegulation)
+    if (!didUserSelectRegulation)
+      setDidUserSelectRegulation(!didUserSelectRegulation)
   }
 
   const handleSupplyClick = () => {
@@ -104,7 +105,7 @@ export default function Single({ allResults }: Props) {
       />
       {loading ? (
         <div className='m-6 flex items-center justify-center'>
-          <RingLoader color={"#ffffff"} loading={true} size={50}/>
+          <RingLoader color={'#ffffff'} loading={true} size={50} />
         </div>
       ) : null}
 

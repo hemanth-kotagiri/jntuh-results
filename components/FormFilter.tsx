@@ -24,7 +24,7 @@ export const FormFilter = (props: Props) => {
             type='checkbox'
             value='Regular'
             name='Regular'
-            id="Regular"
+            id='Regular'
             onClick={props.handleRegularClick}
           />
           <label
@@ -39,7 +39,7 @@ export const FormFilter = (props: Props) => {
             type='checkbox'
             value='Supply'
             name='Supply'
-            id="supply"
+            id='supply'
             onClick={props.handleSupplyClick}
           />
           <label
