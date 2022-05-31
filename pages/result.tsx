@@ -65,7 +65,7 @@ export default function Result({ data }: any) {
   var results: SubjectDetails[]
   if (data === 'error') {
     return (
-      <div className='flex flex-col items-center min-h-screen overflow-hidden text-center bg-gray-800 font-inter'>
+      <div className='flex flex-col items-center min-h-screen overflow-hidden text-center bg-neutral-900 font-inter'>
         <PageHead
           title={'Error'}
           description={'Error: Hallticket not found'}
@@ -98,7 +98,7 @@ export default function Result({ data }: any) {
     results = data[1]
   }
   return (
-    <div className='min-h-screen overflow-hidden text-center bg-gray-800 font-inter'>
+    <div className='min-h-screen overflow-hidden text-center bg-neutral-900 font-inter'>
       <PageHead
         title={studentInfo.HTNO}
         description={'Single Hallticket Result'}

@@ -91,7 +91,7 @@ export default function MultiResult({ data }: any) {
         url={'multiresult'}
       />
       {data['result'] === 'loading' ? (
-        <div className='flex flex-col items-center min-h-screen overflow-hidden text-center bg-gray-800 font-inter'>
+        <div className='flex flex-col items-center min-h-screen overflow-hidden text-center bg-neutral-900 font-inter'>
           <h1 className='text-xl sm:text-2xl mt-6 mb-6 text-center text-gray-400'>
             Sit back, relax while the backend fetches all the results
           </h1>
@@ -99,7 +99,7 @@ export default function MultiResult({ data }: any) {
           <HashLoader color={'#ffffff'} loading={true} size={30} />
         </div>
       ) : (
-        <div className='bg-gray-800'>
+        <div className='bg-neutral-900'>
           {/* render statistics here */}
           {data.length ? (
             <div className='flex flex-col items-center'>
@@ -117,7 +117,7 @@ export default function MultiResult({ data }: any) {
             data.map((item: any, idx: number) => (
               <div
                 key={idx}
-                className='overflow-hidden text-center bg-gray-800 font-inter'
+                className='overflow-hidden text-center bg-neutral-900 font-inter'
               >
                 {item.length > 1 ? (
                   <div>
@@ -132,7 +132,7 @@ export default function MultiResult({ data }: any) {
               </div>
             ))
           ) : (
-            <div className='flex flex-col items-center min-h-screen overflow-hidden text-center bg-gray-800 font-inter'>
+            <div className='flex flex-col items-center min-h-screen overflow-hidden text-center bg-neutral-900 font-inter'>
               <Link href='/'>
                 <div className='flex flex-row items-center justify-center cursor-pointer'>
                   <BackIcon size='1.5rem' className='mt-6 mr-2 text-gray-400' />

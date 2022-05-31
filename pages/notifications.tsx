@@ -38,7 +38,7 @@ export interface Props {
 
 export default ({ notifications }: Props) => {
   return (
-    <div className="overflow-hidden flex flex-col items-center justify-center min-h-screen py-2 bg-gray-800 font-inter">
+    <div className="overflow-hidden flex flex-col items-center justify-center min-h-screen py-2 bg-neutral-900 font-inter">
       <Head>
         <title>JNTUH Results Notifications</title>
         <link rel="icon" href="/financial.ico" />
@@ -66,7 +66,7 @@ export default ({ notifications }: Props) => {
         {notifications.map((item: Notification, idx: number) => (
           <div
             key={idx}
-            className="shadow-2xl text-white p-6 mt-6 text-left border border-gray-700 w-96 rounded-xl"
+            className="shadow-2xl text-white p-6 mt-6 text-left border border-gray-800 w-96 rounded-xl"
           >
             <h3 className="text-sky-400 text-lg sm:text-xl font-bold p-6 text-center">
               {item.notification_date}

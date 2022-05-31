@@ -78,7 +78,7 @@ export default function MultipleResults({ allResults }: Props) {
   const regulations: Array<string> = Array.from(formRegulations)
 
   return (
-    <div className='flex flex-col items-center min-h-screen py-2 overflow-hidden bg-gray-800 font-inter'>
+    <div className='flex flex-col items-center min-h-screen py-2 overflow-hidden bg-neutral-900 font-inter'>
       <PageHead
         title={'Get Multiple Results with Statistics'}
         description={

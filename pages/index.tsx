@@ -4,7 +4,7 @@ import Footer from '../components/Footer'
 
 const Home = () => {
   return (
-    <div className='flex flex-col items-center overflow-hidden justify-center min-h-screen py-2 bg-gray-800'>
+    <div className='flex flex-col items-center overflow-hidden justify-center min-h-screen py-2 bg-neutral-900'>
       <Head>
         <title>JNTUH Results Stats</title>
         <link rel="icon" href="/financial.ico" />

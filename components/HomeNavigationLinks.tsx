@@ -35,14 +35,14 @@ const HomeNavLinks = () => {
     <div className='flex flex-wrap items-center justify-around max-w-4xl mt-6 sm:w-full'>
       {links.map((link: Link, idx: number) => (
         <Link href={link.route} key={idx}>
-          <a className='shadow-2xl max-w-xs p-6 mt-6 text-left border border-gray-600 md:w-96 rounded-xl hover:border-gray-500 transition ease-in-out delay-75 hover:-translate-y-1 hover:scale-105 hover:bg-blue-900 duration-300'>
-            <h3 className='text-white text-lg sm:text-2xl font-bold'>
+          <a className='group text-white shadow-2xl max-w-xs p-6 mt-6 text-left md:w-96 rounded-xl hover:border-gray-500 transition ease-in-out delay-75 hover:-translate-y-1 hover:scale-105 hover:bg-blue-300 duration-300'>
+            <h3 className='group-hover:text-black text-lg sm:text-2xl font-bold'>
               <div className='flex flex-row items-center justify-start'>
                 <span className='p-1'>{link.desctiption[0]}</span>
                 {<HiArrowRight />}
               </div>
             </h3>
-            <p className='text-gray-400 mt-4 text-base sm:text-xl'>
+            <p className='group-hover:text-black text-gray-400 mt-4 text-base sm:text-xl'>
               {link.desctiption[1]}
             </p>
           </a>
@@ -51,15 +51,15 @@ const HomeNavLinks = () => {
       <a
         target='_blank'
         href='https://hemanth-kotagiri.github.io/sgpa-rest-api-docs/'
-        className='shadow-2xl max-w-xs p-6 mt-6 text-left border border-gray-600 md:w-96 rounded-xl hover:border-gray-500 transition ease-in-out delay-75 hover:-translate-y-1 hover:scale-105 hover:bg-blue-900 duration-300'
+        className='group text-white shadow-2xl max-w-xs p-6 mt-6 text-left md:w-96 rounded-xl hover:border-gray-500 transition ease-in-out delay-75 hover:-translate-y-1 hover:scale-105 hover:bg-blue-300 duration-300'
       >
-        <h3 className='text-white text-lg sm:text-2xl font-bold'>
+        <h3 className='group-hover:text-black text-lg sm:text-2xl font-bold'>
           <div className='flex flex-row items-center justify-start'>
-            <span className="p-1">API Documentation</span>
+            <span className='p-1'>API Documentation</span>
             {<HiArrowRight />}
           </div>
         </h3>
-        <p className='text-gray-400 mt-4 text-base sm:text-xl'>
+        <p className='group-hover:text-black text-gray-400 mt-4 text-base sm:text-xl'>
           Learn about the backend that this application uses built using Python
           and Flask.
         </p>

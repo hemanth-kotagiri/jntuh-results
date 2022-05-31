@@ -61,7 +61,7 @@ export const FormFilter = (props: Props) => {
           type='text'
           name='hallticket'
           placeholder='e.g: 185U1A0565'
-          className='text-white text-center bg-gray-800 border border-gray-500 cursor-black'
+          className='text-white text-center bg-neutral-900 border border-gray-500 cursor-black'
           onChange={(e: React.ChangeEvent<HTMLInputElement>) =>
             props.handleHallticket!(e)
           }
@@ -73,7 +73,7 @@ export const FormFilter = (props: Props) => {
             type='text'
             name='hallticket-from'
             placeholder='e.g: 185U1A0560'
-            className='text-white text-center bg-gray-800 border border-gray-500 cursor-black m-2'
+            className='text-white text-center bg-neutral-900 border border-gray-500 cursor-black m-2'
             onChange={(e: React.ChangeEvent<HTMLInputElement>) =>
               props.handleFromHallticket!(e)
             }
@@ -83,7 +83,7 @@ export const FormFilter = (props: Props) => {
             type='text'
             name='hallticket-to'
             placeholder='e.g: 185U1A05B7'
-            className='text-white text-center bg-gray-800 border border-gray-500 cursor-black m-2'
+            className='text-white text-center bg-neutral-900 border border-gray-500 cursor-black m-2'
             onChange={(e: React.ChangeEvent<HTMLInputElement>) =>
               props.handleToHallticket!(e)
             }
