@@ -58,7 +58,7 @@ export function RenderEachSubjectOverAllPassFailBarChart({ props }: any) {
       }
       if ('total_marks' in subject) {
         if (subject.subject_name in meanSubjectMap) {
-          meanSubjectMap[subject.subject_name]["sum"] += parseInt(subject.total_marks)
+          meanSubjectMap[subject.subject_name]["sum"] += parseInt(subject.total_marks) || 0
           meanSubjectMap[subject.subject_name]["count"] += 1
         } else {
           meanSubjectMap[subject.subject_name] = {

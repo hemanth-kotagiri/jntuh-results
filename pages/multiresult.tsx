@@ -142,11 +142,11 @@ export default function MultiResult({ data }: any) {
                 </div>
               </Link>
               <h1 className='text-xl sm:text-2xl mt-6 mb-6 text-center text-gray-400'>
-                Oops, looks like no one wrote that exam!
+                Oops, likely like no one wrote that exam, or JNTUH servers are down!
               </h1>
               <h2 className='text-white text-center'>
                 JNTUH Servers didn't respond with any data, so please try for a
-                valid exam.
+                valid exam, or retry after sometime.
               </h2>
             </div>
           )}
