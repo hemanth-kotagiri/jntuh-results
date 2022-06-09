@@ -1,12 +1,13 @@
 import React from 'react'
-import SubjectDetails from "../components/definedTypes"
+import SubjectDetails from '../components/definedTypes'
 
 interface Props {
   results: SubjectDetails[]
 }
 
 export const ResultSubjectsList = (props: Props) => {
-  const {results} = props;
+  const { results } = props
+  const grades = ['O', 'A+', 'A', 'B+', 'B', 'C']
   return (
     <div className='flex flex-col items-center'>
       <div className='text-white'>
@@ -17,12 +18,13 @@ export const ResultSubjectsList = (props: Props) => {
               <h1 className='p-2 text-left'>{item.subject_name}</h1>
               <h1
                 className={`p-2 ${
-                  item.grade_earned === 'F' || item.grade_earned === 'Ab'
+                  // item.grade_earned === 'F' || item.grade_earned === 'Ab'
+                  !grades.includes(item.grade_earned)
                     ? 'text-red-400'
                     : 'text-green-400'
                 }`}
               >
-                {item.grade_earned}
+                {item.grade_earned === "-" ? "MALPRACTICE" : item.grade_earned}
               </h1>
             </div>
             {item.external_marks && item.internal_marks && item.total_marks ? (
