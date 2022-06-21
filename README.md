@@ -1,4 +1,4 @@
-# JNTUH Results Statistics
+# [ JNTUH Results Statistics ](https://jntuh-results-stats.vercel.app)
 
 <img src="./homepage.png">
 <br>
@@ -14,20 +14,21 @@
 
 ## Introduction
 
-A place where you can get result(s) of all semesters, and regulations. All that
-you need is your hallticket to fetch the results along with the SGPA for that
-specific exam. Along with fetching result of a single hallticket, you can also
-fetch results of students given a **_specific, valid range_** of hallticket
-numbers. This feature of the website also provides you with basic statistics
-such as overall pass to failure percentages and subject wise mean total marks.
+A place where you can get result(s) of all semesters, and regulations of
+engineering undergraduates. All that you need is your hallticket to fetch the
+results along with the SGPA for that specific exam. Along with fetching result
+of a single hallticket, you can also fetch results of students given a
+**_specific, valid range_** of hallticket numbers. This feature of the website
+also provides you with basic statistics such as overall pass to failure
+percentages and subject wise mean total marks.
 
 ## Features
 
-- Filter the exam links as you want - Regulation(s), and Exam tpye. (The only
+- Filter the exam links as you want - Regulation(s), and Exam type. (The only
   reason why I started this project).
 - **Notifications** - Latest B.Tech exam results released notifications.
 - **Single Student Result** - Ability to get result along with the SGPA of a single student provided the hallticket.
-- **Results of multiple students** given a specific range of halltickets along with statistics such as
+- **Results of Multiple Students** given a specific range of halltickets along with statistics such as
   - Overall pass/fail ratio of the given range of halltickets.
   - Bar chart representing each subject's pass to fail ratio along with mean total marks for eligible exams.
 
@@ -38,31 +39,31 @@ such as overall pass to failure percentages and subject wise mean total marks.
 Clone the project
 
 ```bash
-  git clone https://github.com/hemanth-kotagiri/jntuh-results-stats
+git clone https://github.com/hemanth-kotagiri/jntuh-results-stats
 ```
 
 Go to the project directory
 
 ```bash
-  cd jntuh-results-stats
+cd jntuh-results-stats
 ```
 
 Install dependencies
 
 ```bash
-  yarn install
+yarn install
 ```
 
-Start the server
+Start the development server
 
 ```bash
-  yarn run dev
+yarn run dev
 ```
 
 Run the production build
 
 ```bash
-  yarn run start
+yarn run start
 ```
 
 ## API Documentation
