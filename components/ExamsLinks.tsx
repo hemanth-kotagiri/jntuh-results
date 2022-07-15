@@ -68,13 +68,13 @@ export const ExamsLinks = (props: Props) => {
                   >
                     <div
                       onClick={() => props.loadingFunction(true)}
-                      className='shadow-2xl p-6 m-6 text-left text-white 
+                      className='group shadow-2xl p-6 m-6 text-left text-white 
                           cursor-pointer max-w-xs sm:w-96
                           rounded-xl transition ease-in-out
                           delay-150 hover:-translate-y-1 hover:scale-105
-                          hover:bg-blue-900 duration-150'
+                          hover:bg-blue-300 duration-150 hover:drop-shadow-sm hover:text-black'
                     >
-                      <h3 className='p-6 text-lg font-bold text-center text-sky-400 sm:text-xl'>
+                      <h3 className='p-6 text-lg font-bold text-center text-sky-400 sm:text-xl group-hover:text-black'>
                         {item.release_date}
                       </h3>
                       <p className='mt-4 text-center text-m'>

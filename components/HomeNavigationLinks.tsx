@@ -35,7 +35,7 @@ const HomeNavLinks = () => {
     <div className='flex flex-wrap items-center justify-around max-w-4xl mt-6 sm:w-full'>
       {links.map((link: Link, idx: number) => (
         <Link href={link.route} key={idx}>
-          <a className='group text-white shadow-2xl max-w-xs p-6 mt-6 text-left md:w-96 rounded-xl hover:border-gray-500 transition ease-in-out delay-75 hover:-translate-y-1 hover:scale-105 hover:bg-blue-300 duration-300'>
+          <a className='hover:drop-shadow-sm group text-white shadow-2xl max-w-xs p-6 mt-6 text-left md:w-96 rounded-xl hover:border-gray-500 transition ease-in-out delay-75 hover:-translate-y-1 hover:scale-105 hover:bg-blue-300 duration-300'>
             <h3 className='group-hover:text-black text-lg sm:text-2xl font-bold'>
               <div className='flex flex-row items-center justify-start'>
                 <span className='p-1'>{link.desctiption[0]}</span>
@@ -51,7 +51,7 @@ const HomeNavLinks = () => {
       <a
         target='_blank'
         href='https://hemanth-kotagiri.github.io/sgpa-rest-api-docs/'
-        className='group text-white shadow-2xl max-w-xs p-6 mt-6 text-left md:w-96 rounded-xl hover:border-gray-500 transition ease-in-out delay-75 hover:-translate-y-1 hover:scale-105 hover:bg-blue-300 duration-300'
+        className='hover:drop-shadow-sm group text-white shadow-2xl max-w-xs p-6 mt-6 text-left md:w-96 rounded-xl hover:border-gray-500 transition ease-in-out delay-75 hover:-translate-y-1 hover:scale-105 hover:bg-blue-300 duration-300'
       >
         <h3 className='group-hover:text-black text-lg sm:text-2xl font-bold'>
           <div className='flex flex-row items-center justify-start'>
