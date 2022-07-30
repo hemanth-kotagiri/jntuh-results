@@ -32,7 +32,7 @@ const HomeNavLinks = () => {
   ]
 
   return (
-    <div className='flex flex-wrap items-center justify-around max-w-4xl mt-6 sm:w-full'>
+    <div className='home-links flex flex-wrap items-center justify-around max-w-4xl mt-6 sm:w-full'>
       {links.map((link: Link, idx: number) => (
         <Link href={link.route} key={idx}>
           <a className='hover:drop-shadow-sm group text-white shadow-2xl max-w-xs p-6 mt-6 text-left md:w-96 rounded-xl hover:border-gray-500 transition ease-in-out delay-75 hover:-translate-y-1 hover:scale-105 hover:bg-blue-300 duration-300'>

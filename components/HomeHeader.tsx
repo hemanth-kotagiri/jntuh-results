@@ -12,7 +12,7 @@ const HomeHeader = () => {
         </a>
       </h1>
 
-      <p className='text-gray-400 mt-6 text-base sm:text-xl'>
+      <p className='home-header-caption text-gray-400 mt-6 text-base sm:text-xl'>
         Get all your results in one place.{' '}
         <i>
           Just your <b>hallticket</b>, to rule them all.
