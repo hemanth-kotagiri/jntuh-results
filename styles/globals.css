@@ -4,7 +4,7 @@
 @tailwind utilities;
 
 .home-links {
-  animation: fadeInAnimationLinks ease 2s;
+  animation: fadeInAnimationLinks ease 1s;
   animation-iteration-count: 1;
   animation-fill-mode: forwards;
 }
