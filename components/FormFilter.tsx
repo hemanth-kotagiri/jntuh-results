@@ -18,7 +18,7 @@ export interface Props {
 export const FormFilter = (props: Props) => {
   return (
     <div className='flex flex-col items-center'>
-      <div className='flex flex-col sm:flex-row text-xl text-white sm:text-2xl'>
+      <div className='flex flex-col sm:flex-row text-xl dark:text-white sm:text-2xl'>
         <div className='flex flex-row items-center m-2'>
           <input
             type='checkbox'
@@ -26,15 +26,16 @@ export const FormFilter = (props: Props) => {
             name='Regular'
             id='Regular'
             onClick={props.handleRegularClick}
+            className={''}
           />
           <label
-            className='ml-2 text-xl text-white sm:text-2xl cursor-pointer'
+            className='ml-2 text-xl dark:text-white sm:text-2xl cursor-pointer'
             htmlFor='Regular'
           >
             <h3>Regular Results</h3>
           </label>
         </div>
-        <div className='flex flex-row items-center m-2'>
+        <div className='flex flex-row items-center m-2 dark:text-white'>
           <input
             type='checkbox'
             value='Supply'
@@ -43,7 +44,7 @@ export const FormFilter = (props: Props) => {
             onClick={props.handleSupplyClick}
           />
           <label
-            className='ml-2 text-xl text-white sm:text-2xl cursor-pointer'
+            className='ml-2 text-xl dark:text-white sm:text-2xl cursor-pointer'
             htmlFor='supply'
           >
             <h3>Supply Results</h3>
@@ -61,29 +62,29 @@ export const FormFilter = (props: Props) => {
           type='text'
           name='hallticket'
           placeholder='e.g: 185U1A0565'
-          className='text-white text-center bg-neutral-900 border border-gray-500 cursor-black'
+          className='dark:text-white text-center border border-gray-500 cursor-black'
           onChange={(e: React.ChangeEvent<HTMLInputElement>) =>
             props.handleHallticket!(e)
           }
         />
       ) : (
         <div className='flex sm:flex-row flex-col items-center'>
-          <h1 className='text-white'>From </h1>
+          <h1 className='dark:text-white'>From </h1>
           <input
             type='text'
             name='hallticket-from'
             placeholder='e.g: 185U1A0560'
-            className='text-white text-center bg-neutral-900 border border-gray-500 cursor-black m-2'
+            className='text-center border border-gray-500 cursor-black m-2 outline-none'
             onChange={(e: React.ChangeEvent<HTMLInputElement>) =>
               props.handleFromHallticket!(e)
             }
           />
-          <h1 className='text-white'>To </h1>
+          <h1 className='dark:text-white'>To </h1>
           <input
             type='text'
             name='hallticket-to'
             placeholder='e.g: 185U1A05B7'
-            className='text-white text-center bg-neutral-900 border border-gray-500 cursor-black m-2'
+            className='text-center border border-gray-500 cursor-black m-2 outline-none'
             onChange={(e: React.ChangeEvent<HTMLInputElement>) =>
               props.handleToHallticket!(e)
             }

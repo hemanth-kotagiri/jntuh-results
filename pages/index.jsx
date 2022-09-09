@@ -3,8 +3,9 @@ import HomeMain from '../components/HomeMain'
 import Footer from '../components/Footer'
 
 const Home = () => {
+
   return (
-    <div className='flex flex-col items-center overflow-hidden justify-center min-h-screen py-2 bg-neutral-900'>
+    <div className=''>
       <Head>
         <title>JNTUH Results Stats</title>
         <link rel="icon" href="/financial.ico" />
@@ -26,8 +27,9 @@ const Home = () => {
           }
         />
       </Head>
-      <HomeMain />
-      <Footer />
+      <div className=''>
+        <HomeMain />
+      </div>
     </div>
   )
 }
