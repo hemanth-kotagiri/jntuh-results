@@ -1,11 +1,14 @@
 import HomeHeader from "./HomeHeader";
 import HomeNavLinks from "./HomeNavigationLinks";
+import Nav from "./NavBar/Nav";
+import Navbar from './NavBar/Navbar'
 
 const HomeMain = () => {
   return (
-    <main className="font-inter flex flex-col items-center justify-center w-screen flex-1 px-20 text-center">
-      <HomeHeader />
-      <HomeNavLinks />
+    <main className="">
+      {/* <HomeHeader /> */}
+      {/* <HomeNavLinks /> */}
+
     </main>
   );
 };

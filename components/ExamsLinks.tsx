@@ -29,7 +29,7 @@ export const ExamsLinks = (props: Props) => {
     <div>
       {filteredLinks.length ? (
         <div>
-          <h3 className='mt-6 text-lg font-bold text-center text-white sm:text-2xl'>
+          <h3 className='mt-6 text-lg font-bold text-center dark:text-white sm:text-2xl'>
             {props.heading}
           </h3>
           <div
@@ -45,34 +45,34 @@ export const ExamsLinks = (props: Props) => {
                       query:
                         props.multi === false
                           ? {
-                              examCode: item.examCode,
-                              result: item.result,
-                              type: item.type,
-                              etype: item.etype,
-                              degree: item.degree,
-                              hallticket: props.hallticket!.toUpperCase(),
-                              selectedType: props.selectedType,
-                            }
+                            examCode: item.examCode,
+                            result: item.result,
+                            type: item.type,
+                            etype: item.etype,
+                            degree: item.degree,
+                            hallticket: props.hallticket!.toUpperCase(),
+                            selectedType: props.selectedType,
+                          }
                           : {
-                              examCode: item.examCode,
-                              result: item.result,
-                              type: item.type,
-                              etype: item.etype,
-                              degree: item.degree,
-                              selectedType: props.selectedType,
-                              fromHallticket:
-                                props.fromHallticket!.toUpperCase(),
-                              toHallticket: props.toHallticket!.toUpperCase(),
-                            },
+                            examCode: item.examCode,
+                            result: item.result,
+                            type: item.type,
+                            etype: item.etype,
+                            degree: item.degree,
+                            selectedType: props.selectedType,
+                            fromHallticket:
+                              props.fromHallticket!.toUpperCase(),
+                            toHallticket: props.toHallticket!.toUpperCase(),
+                          },
                     }}
                   >
                     <div
                       onClick={() => props.loadingFunction(true)}
-                      className='group shadow-2xl p-6 m-6 text-left text-white 
+                      className='group shadow-2xl p-6 m-6 text-left dark:text-white 
                           cursor-pointer max-w-xs sm:w-96
                           rounded-xl transition ease-in-out
                           delay-150 hover:-translate-y-1 hover:scale-105
-                          hover:bg-blue-300 duration-150 hover:drop-shadow-sm hover:text-black'
+                          hover:bg-blue-300 dark:hover:bg-white duration-150 hover:drop-shadow-sm dark:hover:text-black border dark:border-white z-0'
                     >
                       <h3 className='p-6 text-lg font-bold text-center text-sky-400 sm:text-xl group-hover:text-black'>
                         {item.release_date}

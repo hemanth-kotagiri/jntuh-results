@@ -3,6 +3,24 @@
 @tailwind components;
 @tailwind utilities;
 
+.dark {
+  background-color: #020E24;
+  color: white;
+}
+
+.dark>.darkText {
+  color: rgb(38, 99, 151);
+}
+
+body {
+  background-color: white;
+  color: #020E24;
+}
+
+.form:focus .mobilehidden {
+  position: static;
+}
+
 .home-links {
   animation: fadeInAnimationLinks ease 1s;
   animation-iteration-count: 1;
