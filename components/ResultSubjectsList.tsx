@@ -20,8 +20,8 @@ export const ResultSubjectsList = (props: Props) => {
                 className={`p-2 ${
                   // item.grade_earned === 'F' || item.grade_earned === 'Ab'
                   !grades.includes(item.grade_earned)
-                    ? 'text-red-400'
-                    : 'text-green-400'
+                    ? 'text-red-600'
+                    : 'text-green-600'
                   }`}
               >
                 {item.grade_earned === "-" ? "MALPRACTICE" : item.grade_earned}
@@ -30,15 +30,15 @@ export const ResultSubjectsList = (props: Props) => {
             {item.external_marks && item.internal_marks && item.total_marks ? (
               <div className='flex flex-row place-items-start'>
                 <div className='flex flex-col xm:flex-row items-center justify-center'>
-                  <h1 className='p-3 text-gray-400 text-xs md:text-sm'>Internal Marks</h1>
+                  <h1 className='p-3 text-gray-600 text-xs md:text-sm'>Internal Marks</h1>
                   <h1 className='text-sm text-black dark:text-white'>{item.internal_marks}</h1>
                 </div>
                 <div className='flex flex-col xm:flex-row items-center justify-center'>
-                  <h1 className='p-3 text-gray-400 text-xs md:text-sm'>External Marks</h1>
+                  <h1 className='p-3 text-gray-600 text-xs md:text-sm'>External Marks</h1>
                   <h1 className='text-sm text-black dark:text-white'>{item.external_marks}</h1>
                 </div>
                 <div className='flex flex-col xm:flex-row items-center justify-center'>
-                  <h1 className='p-3 text-gray-400 text-xs md:text-sm'>Total Marks</h1>
+                  <h1 className='p-3 text-gray-600 text-xs md:text-sm'>Total Marks</h1>
                   <h1 className='text-sm text-black dark:text-white'>{item.total_marks}</h1>
                 </div>
               </div>

@@ -27,7 +27,7 @@ const Navbar = (props) => {
 
   return (
     <>
-      <nav className="bg-transparent shadow-xl h-20 flex items-center p-4 lg:p-8 border-b-[0.5px] border-white sticky">
+      <nav className="bg-transparent shadow-xl h-20 flex items-center px-4 lg:p-8 border-b-[0.5px] border-white sticky">
         <h1 className="text-md font-bold md:text-lg lg:text-2xl flex-1 text-[#020E24] dark:text-white">
           <Link href='/'>
             <a>JNTUH Results.</a>

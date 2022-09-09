@@ -71,10 +71,10 @@ export default function Result({ data }: any) {
           description={'Error: Hallticket not found'}
           url={'result'}
         />
-        <Link href='/single'>
-          <div className='flex flex-row items-center justify-center cursor-pointer'>
+        <Link href='/'>
+          <div className='flex flex-row items-center justify-between cursor-pointer'>
             <BackIcon size='1.5rem' className='mt-6 mr-2 text-gray-400' />
-            <h3 className='mt-6 text-lg font-bold text-white sm:text-2xl'>
+            <h3 className='mt-6 text-lg font-bold sm:text-2xl text-black dark:text-white'>
               Go Back
             </h3>
           </div>
@@ -104,7 +104,7 @@ export default function Result({ data }: any) {
         description={'Single Hallticket Result'}
         url={'single'}
       />
-      <div className='w-fit justify-center border-black rounded-md  border-2 dark:border-white'>
+      <div className='w-fit justify-center border-black rounded-md  border dark:border-white'>
         <StudentInfoAndGPA
           studentName={studentInfo.NAME}
           studentHTNO={studentInfo.HTNO}

@@ -11,8 +11,8 @@ function MyApp({ Component, pageProps }: AppProps) {
       <div className="bg-white dark:bg-[#020E24]">
         <NextNProgress />
         <Navbar />
-        <div className="flex justify-center md:hidden w-screen">
-          <div className="fixed bottom-5 shadow-md bg-gray-300 text-white rounded-md dark:bg-[#2465df] px-2 sm:px-4">
+        <div className="flex justify-center md:hidden w-screen mobilehidden">
+          <div className="fixed bottom-5 shadow-md bg-gray-300 text-white rounded-md dark:bg-[#2465df] px-2 sm:px-4 z-auto">
             <Nav />
           </div>
         </div>

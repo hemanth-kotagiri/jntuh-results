@@ -90,7 +90,7 @@ export default function Single({ allResults }: Props) {
           </h3>
         </div>
       </Link>
-      <p className='m-6 text-base sm:text-xl'>
+      <p className='m-6 text-base sm:text-xl text-black  dark:text-white'>
         Select from the below options to filter your desired result. Please
         select only a single regulation at a time.
       </p>

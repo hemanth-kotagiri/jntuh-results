@@ -72,7 +72,7 @@ export const ExamsLinks = (props: Props) => {
                           cursor-pointer max-w-xs sm:w-96
                           rounded-xl transition ease-in-out
                           delay-150 hover:-translate-y-1 hover:scale-105
-                          hover:bg-blue-300 dark:hover:bg-white duration-150 hover:drop-shadow-sm dark:hover:text-black border dark:border-white'
+                          hover:bg-blue-300 dark:hover:bg-white duration-150 hover:drop-shadow-sm dark:hover:text-black border dark:border-white z-0'
                     >
                       <h3 className='p-6 text-lg font-bold text-center text-sky-400 sm:text-xl group-hover:text-black'>
                         {item.release_date}

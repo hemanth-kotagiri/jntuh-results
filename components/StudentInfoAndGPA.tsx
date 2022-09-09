@@ -24,7 +24,7 @@ export const StudentInfoAndGPA = (props: Props) => {
           <div>
             <h1 className='text-xs text-gray-400 sm:text-lg'> SGPA/Verdict</h1>
             <h1
-              className={`text-xl sm:text-2xl ${sgpaInfo.SGPA !== 'FAIL' ? 'text-green-400' : 'text-red-400'
+              className={`text-xl sm:text-2xl ${sgpaInfo.SGPA !== 'FAIL' ? 'text-green-600' : 'text-red-600'
                 }`}
             >
               {sgpaInfo.SGPA}
