@@ -1,16 +1,12 @@
-import HomeHeader from "./HomeHeader";
-import HomeNavLinks from "./HomeNavigationLinks";
-import Nav from "./NavBar/Nav";
-import Navbar from './NavBar/Navbar'
-
+import HomeHeader from './HomeHeader'
+import HomeNavLinks from './HomeNavigationLinks'
 const HomeMain = () => {
   return (
-    <main className="">
-      {/* <HomeHeader /> */}
-      {/* <HomeNavLinks /> */}
-
+    <main className='text-center flex flex-col items-center'>
+      <HomeHeader />
+      <HomeNavLinks />
     </main>
-  );
-};
+  )
+}
 
-export default HomeMain;
+export default HomeMain

@@ -79,12 +79,12 @@ export const FormFilter = (props: Props) => {
               props.handleFromHallticket!(e)
             }
           />
-          <h1 className='dark:text-white'>To </h1>
+          <h1 className='dark:text-white pr-2'>To </h1>
           <input
             type='text'
             name='hallticket-to'
             placeholder='e.g: 185U1A05B7'
-            className='text-center border border-gray-500 cursor-black m-2 outline-none'
+            className=' form dark:text-white text-black dark:bg-[#020E24] text-center border border-gray-500 cursor-black outline-none'
             onChange={(e: React.ChangeEvent<HTMLInputElement>) =>
               props.handleToHallticket!(e)
             }

@@ -59,7 +59,8 @@ export default function MultipleResults({ allResults }: Props) {
 
   const handleRegulationClick = (e: React.FormEvent<HTMLInputElement>) => {
     setSelectedRegulation(e.currentTarget.value)
-    if (!didUserSelectRegulation) setDidUserSelectRegulation(!didUserSelectRegulation)
+    if (!didUserSelectRegulation)
+      setDidUserSelectRegulation(!didUserSelectRegulation)
   }
 
   const handleSupplyClick = () => {
@@ -94,6 +95,7 @@ export default function MultipleResults({ allResults }: Props) {
           </h3>
         </div>
       </Link>
+      {/* TODO: Add more description about this page here  */}
       <p className='m-6 text-base text-center text-gray-400 sm:text-xl'>
         Select from the below options to filter your desired result. Please
         select only a single regulation at a time.
