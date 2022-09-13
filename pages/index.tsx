@@ -3,12 +3,11 @@ import HomeMain from '../components/HomeMain'
 import Footer from '../components/Footer'
 
 const Home = () => {
-
   return (
-    <div className=''>
+    <div className='flex flex-col items-center justify-center'>
       <Head>
         <title>JNTUH Results Stats</title>
-        <link rel="icon" href="/financial.ico" />
+        <link rel='icon' href='/financial.ico' />
         <meta
           property='og:url'
           content='https://jntuh-results-stats.vercel.app/'
@@ -27,9 +26,8 @@ const Home = () => {
           }
         />
       </Head>
-      <div className=''>
-        <HomeMain />
-      </div>
+      <HomeMain />
+      <Footer />
     </div>
   )
 }

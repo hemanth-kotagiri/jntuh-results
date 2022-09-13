@@ -121,7 +121,7 @@ export default function MultiResult({ data }: any) {
               >
                 {item.length > 1 ? (
                   <div className='flex justify-center flex-wrap'>
-                    <div className='p-4 md:max-w-[40%] rounded-lg  dark:text-white border dark:border-white border-black  my-3 '>
+                    <div className='p-4 md:max-w-[40%] rounded-lg  dark:text-white border dark:border-slate-700 border-black  my-3 '>
                       <StudentInfoAndGPA
                         studentName={item[1].NAME}
                         studentHTNO={item[1].HTNO}

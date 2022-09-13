@@ -104,7 +104,7 @@ export default function Result({ data }: any) {
         description={'Single Hallticket Result'}
         url={'single'}
       />
-      <div className='w-fit justify-center border-black rounded-md  border dark:border-white'>
+      <div className='w-fit justify-center border-black rounded-md  border dark:border-slate-800'>
         <StudentInfoAndGPA
           studentName={studentInfo.NAME}
           studentHTNO={studentInfo.HTNO}
