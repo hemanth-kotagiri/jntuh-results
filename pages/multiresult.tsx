@@ -91,7 +91,7 @@ export default function MultiResult({ data }: any) {
         url={'multiresult'}
       />
       {data['result'] === 'loading' ? (
-        <div className='flex flex-col items-center min-h-screen overflow-hidden text-center bg-neutral-900 font-inter'>
+        <div className='flex flex-col items-center min-h-screen overflow-hidden text-center  font-inter'>
           <h1 className='text-xl sm:text-2xl mt-6 mb-6 text-center text-gray-400'>
             Sit back, relax while the backend fetches all the results
           </h1>
@@ -99,7 +99,7 @@ export default function MultiResult({ data }: any) {
           <HashLoader color={'#ffffff'} loading={true} size={30} />
         </div>
       ) : (
-        <div className='bg-neutral-900'>
+        <div className=''>
           {/* render statistics here */}
           {data.length ? (
             <div className='flex flex-col items-center'>
@@ -117,22 +117,24 @@ export default function MultiResult({ data }: any) {
             data.map((item: any, idx: number) => (
               <div
                 key={idx}
-                className='overflow-hidden text-center bg-neutral-900 font-inter'
+                className=''
               >
                 {item.length > 1 ? (
-                  <div>
-                    <StudentInfoAndGPA
-                      studentName={item[1].NAME}
-                      studentHTNO={item[1].HTNO}
-                      sgpaInfo={item[0]}
-                    />
-                    <ResultSubjectsList results={item[2]} />
+                  <div className='flex justify-center flex-wrap'>
+                    <div className='p-4 md:max-w-[40%] rounded-lg  dark:text-white border dark:border-slate-700 border-black  my-3 '>
+                      <StudentInfoAndGPA
+                        studentName={item[1].NAME}
+                        studentHTNO={item[1].HTNO}
+                        sgpaInfo={item[0]}
+                      />
+                      <ResultSubjectsList results={item[2]} />
+                    </div>
                   </div>
                 ) : null}
               </div>
             ))
           ) : (
-            <div className='flex flex-col items-center min-h-screen overflow-hidden text-center bg-neutral-900 font-inter'>
+            <div className='flex flex-col items-center min-h-screen overflow-hidden text-center dark:text-white text-black font-inter'>
               <Link href='/'>
                 <div className='flex flex-row items-center justify-center cursor-pointer'>
                   <BackIcon size='1.5rem' className='mt-6 mr-2 text-gray-400' />

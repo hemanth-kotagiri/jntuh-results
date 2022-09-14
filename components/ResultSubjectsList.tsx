@@ -9,20 +9,20 @@ export const ResultSubjectsList = (props: Props) => {
   const { results } = props
   const grades = ['O', 'A+', 'A', 'B+', 'B', 'C']
   return (
-    <div className='flex flex-col items-center'>
+    <div className='flex flex-col items-center p-5'>
       <div className='text-white'>
         {results.map((item: SubjectDetails, idx: number) => (
           <div key={idx}>
             <hr className='border-gray-700' />
             <div className='flex flex-row justify-between items-left' key={idx}>
-              <h1 className='p-2 text-left'>{item.subject_name}</h1>
+              <h1 className='p-2 text-left text-black dark:text-white text-sm md:text-base'>{item.subject_name}</h1>
               <h1
                 className={`p-2 ${
                   // item.grade_earned === 'F' || item.grade_earned === 'Ab'
                   !grades.includes(item.grade_earned)
-                    ? 'text-red-400'
-                    : 'text-green-400'
-                }`}
+                    ? 'text-red-600'
+                    : 'text-green-600'
+                  }`}
               >
                 {item.grade_earned === "-" ? "MALPRACTICE" : item.grade_earned}
               </h1>
@@ -30,16 +30,16 @@ export const ResultSubjectsList = (props: Props) => {
             {item.external_marks && item.internal_marks && item.total_marks ? (
               <div className='flex flex-row place-items-start'>
                 <div className='flex flex-col xm:flex-row items-center justify-center'>
-                  <h1 className='p-3 text-gray-400 text-sm'>Internal Marks</h1>
-                  <h1 className='text-sm'>{item.internal_marks}</h1>
+                  <h1 className='p-3 text-gray-600 text-xs md:text-sm'>Internal Marks</h1>
+                  <h1 className='text-sm text-black dark:text-white'>{item.internal_marks}</h1>
                 </div>
                 <div className='flex flex-col xm:flex-row items-center justify-center'>
-                  <h1 className='p-3 text-gray-400 text-sm'>External Marks</h1>
-                  <h1 className='text-sm'>{item.external_marks}</h1>
+                  <h1 className='p-3 text-gray-600 text-xs md:text-sm'>External Marks</h1>
+                  <h1 className='text-sm text-black dark:text-white'>{item.external_marks}</h1>
                 </div>
                 <div className='flex flex-col xm:flex-row items-center justify-center'>
-                  <h1 className='p-3 text-gray-400 text-sm'>Total Marks</h1>
-                  <h1 className='text-sm'>{item.total_marks}</h1>
+                  <h1 className='p-3 text-gray-600 text-xs md:text-sm'>Total Marks</h1>
+                  <h1 className='text-sm text-black dark:text-white'>{item.total_marks}</h1>
                 </div>
               </div>
             ) : null}

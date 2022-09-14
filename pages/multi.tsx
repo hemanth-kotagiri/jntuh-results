@@ -59,7 +59,8 @@ export default function MultipleResults({ allResults }: Props) {
 
   const handleRegulationClick = (e: React.FormEvent<HTMLInputElement>) => {
     setSelectedRegulation(e.currentTarget.value)
-    if(!didUserSelectRegulation) setDidUserSelectRegulation(!didUserSelectRegulation)
+    if (!didUserSelectRegulation)
+      setDidUserSelectRegulation(!didUserSelectRegulation)
   }
 
   const handleSupplyClick = () => {
@@ -78,7 +79,7 @@ export default function MultipleResults({ allResults }: Props) {
   const regulations: Array<string> = Array.from(formRegulations)
 
   return (
-    <div className='flex flex-col items-center min-h-screen py-2 overflow-hidden bg-neutral-900 font-inter'>
+    <div className='flex flex-col items-center min-h-screen py-2 overflow-hidden font-inter'>
       <PageHead
         title={'Get Multiple Results with Statistics'}
         description={
@@ -89,12 +90,13 @@ export default function MultipleResults({ allResults }: Props) {
       <Link href='/'>
         <div className='flex flex-row items-center justify-between cursor-pointer'>
           <BackIcon size='1.5rem' className='mt-6 mr-2 text-gray-400' />
-          <h3 className='mt-6 text-lg font-bold text-white sm:text-2xl'>
+          <h3 className='mt-6 text-lg font-bold sm:text-2xl text-black dark:text-white'>
             Home
           </h3>
         </div>
       </Link>
-      <p className='m-6 text-base text-center text-gray-400 sm:text-xl'>
+      {/* TODO: Add more description about this page here  */}
+      <p className='m-6 text-center text-base sm:text-xl text-black  dark:text-white'>
         Select from the below options to filter your desired result. Please
         select only a single regulation at a time.
       </p>
@@ -115,11 +117,11 @@ export default function MultipleResults({ allResults }: Props) {
       ) : null}
 
       {regular &&
-      didUserSelectType &&
-      didUserSelectRegulation &&
-      !loading &&
-      fromHallticket.length === 10 &&
-      toHallticket.length === 10 ? (
+        didUserSelectType &&
+        didUserSelectRegulation &&
+        !loading &&
+        fromHallticket.length === 10 &&
+        toHallticket.length === 10 ? (
         <ExamsLinks
           heading={'Regular Results'}
           fromHallticket={fromHallticket}
@@ -132,11 +134,11 @@ export default function MultipleResults({ allResults }: Props) {
         />
       ) : null}
       {supply &&
-      didUserSelectType &&
-      didUserSelectRegulation &&
-      !loading &&
-      fromHallticket.length === 10 &&
-      toHallticket.length === 10 ? (
+        didUserSelectType &&
+        didUserSelectRegulation &&
+        !loading &&
+        fromHallticket.length === 10 &&
+        toHallticket.length === 10 ? (
         <ExamsLinks
           heading={'Supply Results'}
           fromHallticket={fromHallticket}

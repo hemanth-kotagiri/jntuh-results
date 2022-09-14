@@ -4,10 +4,10 @@ import Footer from '../components/Footer'
 
 const Home = () => {
   return (
-    <div className='flex flex-col items-center overflow-hidden justify-center min-h-screen py-2 bg-neutral-900'>
+    <div className='flex flex-col items-center justify-center'>
       <Head>
         <title>JNTUH Results Stats</title>
-        <link rel="icon" href="/financial.ico" />
+        <link rel='icon' href='/financial.ico' />
         <meta
           property='og:url'
           content='https://jntuh-results-stats.vercel.app/'

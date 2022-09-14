@@ -76,7 +76,7 @@ export default function Single({ allResults }: Props) {
   const regulations: Array<string> = Array.from(formRegulations)
 
   return (
-    <div className='flex flex-col items-center min-h-screen py-2 overflow-hidden bg-neutral-900 font-inter'>
+    <div className='flex flex-col items-center min-h-screen py-2 overflow-hidden font-inter'>
       <PageHead
         title={'Get Single Hallticket Result'}
         description={'Get Result of a student given his hallticket number'}
@@ -85,12 +85,13 @@ export default function Single({ allResults }: Props) {
       <Link href='/'>
         <div className='flex flex-row items-center justify-between cursor-pointer'>
           <BackIcon size='1.5rem' className='mt-6 mr-2 text-gray-400' />
-          <h3 className='mt-6 text-lg font-bold text-white sm:text-2xl'>
+          <h3 className='mt-6 text-lg font-bold sm:text-2xl text-black dark:text-white'>
             Home
           </h3>
         </div>
       </Link>
-      <p className='m-6 text-base text-gray-400 sm:text-xl'>
+      {/* TODO: Add more description about this page here  */}
+      <p className='m-6 text-center text-base sm:text-xl text-black  dark:text-white'>
         Select from the below options to filter your desired result. Please
         select only a single regulation at a time.
       </p>
@@ -105,15 +106,15 @@ export default function Single({ allResults }: Props) {
       />
       {loading ? (
         <div className='m-6 flex items-center justify-center'>
-          <RingLoader color={'#ffffff'} loading={true} size={50} />
+          <RingLoader color={''} loading={true} size={50} />
         </div>
       ) : null}
 
       {regular &&
-      didUserSelectType &&
-      didUserSelectRegulation &&
-      !loading &&
-      hallticket.length === 10 ? (
+        didUserSelectType &&
+        didUserSelectRegulation &&
+        !loading &&
+        hallticket.length === 10 ? (
         <ExamsLinks
           heading={'Regular Results'}
           hallticket={hallticket}
@@ -125,10 +126,10 @@ export default function Single({ allResults }: Props) {
         />
       ) : null}
       {supply &&
-      didUserSelectType &&
-      didUserSelectRegulation &&
-      !loading &&
-      hallticket.length === 10 ? (
+        didUserSelectType &&
+        didUserSelectRegulation &&
+        !loading &&
+        hallticket.length === 10 ? (
         <ExamsLinks
           heading={'Supply Results'}
           hallticket={hallticket}

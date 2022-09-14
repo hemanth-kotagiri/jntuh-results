@@ -3,6 +3,52 @@
 @tailwind components;
 @tailwind utilities;
 
+:root {
+  --red: #ff3860;
+  --red-dark: #ff1443;
+  --red-light: #ff5c7c;
+  --blue: #498afb;
+  --blue-dark: #2674fa;
+  --blue-light: #6ca0fc;
+  --orange: #fa8142;
+  --orange-dark: #f96a1f;
+  --orange-light: #fb9865;
+  --green: #09c372;
+  --green-dark: #07a15e;
+  --green-light: #0be586;
+  --purple: #9166cc;
+  --purple-dark: #7d4bc3;
+  --purple-light: #a481d5;
+  --pink: #ff4088;
+  --pink-dark: #ff1c72;
+  --pink-light: #ff649e;
+  --gray0: #f8f8f8;
+  --gray1: #dbe1e8;
+  --gray2: #b2becd;
+  --gray3: #6c7983;
+  --gray4: #454e56;
+  --gray5: #2a2e35;
+  --gray6: #12181b;
+}
+
+.dark {
+  background-color: #020e24;
+  color: white;
+}
+
+.dark > .darkText {
+  color: rgb(38, 99, 151);
+}
+
+body {
+  background-color: white;
+  color: #020e24;
+}
+
+.form:focus .mobilehidden {
+  position: static;
+}
+
 .home-links {
   animation: fadeInAnimationLinks ease 1s;
   animation-iteration-count: 1;
@@ -11,6 +57,12 @@
 
 .home-header-caption {
   animation: fadeInAnimation ease 2s;
+  animation-iteration-count: 1;
+  animation-fill-mode: forwards;
+}
+
+.footer {
+  animation: fadeInAnimationLinks ease 2s;
   animation-iteration-count: 1;
   animation-fill-mode: forwards;
 }
@@ -37,4 +89,18 @@
   100% {
     opacity: 1;
   }
+}
+
+.passion {
+  background: linear-gradient(to right,var(--green) 0%, var(--pink) 100%);
+  background-clip: initial;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.passion-2 {
+  background: linear-gradient(to right,var(--red-dark) 0%, var(--blue-dark) 100%);
+  background-clip: initial;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
 }
