@@ -115,13 +115,10 @@ export default function MultiResult({ data }: any) {
           ) : null}
           {data.length ? (
             data.map((item: any, idx: number) => (
-              <div
-                key={idx}
-                className=''
-              >
+              <div key={idx} className=''>
                 {item.length > 1 ? (
                   <div className='flex justify-center flex-wrap'>
-                    <div className='p-4 md:max-w-[40%] rounded-lg  dark:text-white border dark:border-slate-700 border-black  my-3 '>
+                    <div className='p-4 md:max-w-[40%] rounded-lg  dark:text-white border dark:border-slate-800 border-black my-3 '>
                       <StudentInfoAndGPA
                         studentName={item[1].NAME}
                         studentHTNO={item[1].HTNO}
@@ -144,7 +141,8 @@ export default function MultiResult({ data }: any) {
                 </div>
               </Link>
               <h1 className='text-xl sm:text-2xl mt-6 mb-6 text-center text-gray-400'>
-                Oops, likely like no one wrote that exam, or JNTUH servers are down!
+                Oops, likely like no one wrote that exam, or JNTUH servers are
+                down!
               </h1>
               <h2 className='text-white text-center'>
                 JNTUH Servers didn't respond with any data, so please try for a

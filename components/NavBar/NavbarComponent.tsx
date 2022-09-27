@@ -20,7 +20,7 @@ const NavBarComponent = () => {
     // Beginning of lone block
     isEnable ? root.classList.add('dark') : root.classList.remove('dark')
     // End of lone block
-    localStorage.setItem('mode', JSON.stringify(isEnable))
+    /* localStorage.setItem('mode', JSON.stringify(isEnable)) */
   }, [isEnable])
 
   return (
@@ -41,9 +41,11 @@ const NavBarComponent = () => {
             <MdOutlineDarkMode className='w-5 h-5' />
           )}
         </h1>
-        <h1 className='bg-[#2465df] text-white sm:px-2 px-3 md:px-4 py-1 md:py-2 text-xs lg:text-[16px] font-medium  md:font-semibold rounded-sm  md:text-md cursor-pointer'>
-          Login/Signup
-        </h1>
+        <Link href='login'>
+          <h1 className='bg-[#2465df] text-white sm:px-2 px-3 md:px-4 py-1 md:py-2 text-xs lg:text-[16px] font-medium  md:font-semibold rounded-sm  md:text-md cursor-pointer'>
+            Login/Signup
+          </h1>
+        </Link>
       </div>
     </nav>
   )
