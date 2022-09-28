@@ -29,6 +29,11 @@ const navBarItems: navBarItem[] = [
   },
   {
     id: 4,
+    nav: 'R18',
+    link: '/all-r18',
+  },
+  {
+    id: 5,
     nav: 'Docs',
     link: 'https://hemanth-kotagiri.github.io/sgpa-rest-api-docs/',
     target: '_blank',
