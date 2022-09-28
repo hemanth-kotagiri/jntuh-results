@@ -17,7 +17,7 @@ export const ResultSubjectsList = (props: Props) => {
             <div className='flex flex-row justify-between items-left' key={idx}>
               <h1 className='p-2 text-left text-black dark:text-white text-sm md:text-base'>{item.subject_name}</h1>
               <h1
-                className={`p-2 ${
+                className={`p-2 text-sm md:text-base ${
                   // item.grade_earned === 'F' || item.grade_earned === 'Ab'
                   !grades.includes(item.grade_earned)
                     ? 'text-red-600'

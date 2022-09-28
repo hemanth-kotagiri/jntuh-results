@@ -13,7 +13,6 @@ function MyApp({ Component, pageProps }: AppProps) {
   const listenToScroll = () => {
     const { scrollTop, offsetHeight } = document.documentElement
     const { innerHeight } = window
-    console.log(scrollTop, offsetHeight, innerHeight)
 
     const bottomOfWindow =
       Math.round(scrollTop) + innerHeight + 800 > offsetHeight
