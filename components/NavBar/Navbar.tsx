@@ -14,23 +14,23 @@ const navBarItems: navBarItem[] = [
   },
   {
     id: 1,
+    nav: 'R18',
+    link: '/all-r18',
+  },
+  {
+    id: 2,
     nav: 'Single',
     link: '/single',
   },
   {
-    id: 2,
+    id: 3,
     nav: 'Multiple',
     link: '/multi',
   },
   {
-    id: 3,
+    id: 4,
     nav: 'Notifications',
     link: '/notifications',
-  },
-  {
-    id: 4,
-    nav: 'R18',
-    link: '/all-r18',
   },
   {
     id: 5,
