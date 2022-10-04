@@ -5,6 +5,7 @@ import NavbarComponent from '../components/NavBar/NavbarComponent'
 import Navbar from '../components/NavBar/Navbar'
 import { useRouter } from 'next/router'
 import { useEffect, useState } from 'react'
+import Script from 'next/script'
 
 function MyApp({ Component, pageProps }: AppProps) {
   const [isVisible, setIsVisible] = useState(true)
@@ -33,6 +34,21 @@ function MyApp({ Component, pageProps }: AppProps) {
 
   return (
     <>
+      <Script
+        strategy='lazyOnload'
+        src={`https://www.googletagmanager.com/gtag/js?id=${process.env.NEXT_PUBLIC_GOOGLE_ANALYTICS}`}
+      />
+
+      <Script strategy='lazyOnload'>
+        {`
+                    window.dataLayer = window.dataLayer || [];
+                    function gtag(){dataLayer.push(arguments);}
+                    gtag('js', new Date());
+                    gtag('config', '${process.env.NEXT_PUBLIC_GOOGLE_ANALYTICS}', {
+                    page_path: window.location.pathname,
+                    });
+                `}
+      </Script>
       <div className='font-inter bg-white dark:bg-[#020E24]'>
         <NextNProgress />
         <NavbarComponent />
