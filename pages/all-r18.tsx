@@ -5,7 +5,9 @@ import { RingLoader } from 'react-spinners'
 import PageHead from '../components/PageHeader'
 
 export default function AllR18Results() {
+  // TODO: Add Validation
   const [hallticket, setHallticket] = useState('')
+  const [validationText, setValidationText] = useState('')
   const [loading, setLoading] = useState(false)
 
   return (
@@ -45,6 +47,14 @@ export default function AllR18Results() {
           setHallticket(e.target.value)
         }}
       />
+      {validationText.length ? (
+        <div
+          className='jiggle p-4 m-4 text-sm text-yellow-700 bg-yellow-100 rounded-lg dark:bg-yellow-200 dark:text-yellow-800'
+          role='alert'
+        >
+          <span className='font-medium'>{validationText}</span>
+        </div>
+      ) : null}
       {loading ? (
         <div className='m-6 flex items-center justify-center'>
           <RingLoader color={''} loading={true} size={50} />
@@ -54,8 +64,21 @@ export default function AllR18Results() {
           href={{ pathname: 'allresults', query: { hallticket: hallticket } }}
         >
           <button
-            onClick={async () => {
-              setLoading(!loading)
+            onClick={async (
+              e: React.MouseEvent<HTMLButtonElement, MouseEvent>
+            ) => {
+              if (hallticket.length !== 10 && hallticket.length < 10) {
+                setValidationText(
+                  'What, no! Your hallticket must be 10 digits!'
+                )
+                e.preventDefault()
+              } else if (hallticket.length > 10) {
+                setValidationText('Oops, hallticket longer than 10 digits!')
+                e.preventDefault()
+              } else {
+                setValidationText('')
+                setLoading(!loading)
+              }
             }}
             className='my-4 bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded'
           >
