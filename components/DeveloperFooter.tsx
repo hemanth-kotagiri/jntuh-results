@@ -4,8 +4,19 @@ import {
 } from 'react-icons/ai'
 import { BsGlobe as Globe } from 'react-icons/bs'
 
+export interface DeveloperProfileType {
+  name: string
+  image: string
+  description: string
+  role: string
+  quote: string
+  github: string
+  linkedin: string
+  website?: string
+}
+
 const DeveloperFooter = () => {
-  const developers = [
+  const developers: DeveloperProfileType[] = [
     {
       name: 'Hemanth Kotagiri',
       image: 'https://avatars.githubusercontent.com/u/24365579?v=4',
@@ -37,7 +48,7 @@ const DeveloperFooter = () => {
   ]
   return (
     <div className='flex flex-wrap items-center justify-center'>
-      {developers.map((developer) => (
+      {developers.map((developer: DeveloperProfileType) => (
         <figure className='max-w-lg md:flex bg-slate-100 rounded-xl m-8 dark:bg-slate-800'>
           <img
             className='w-24 h-24 md:w-48 md:h-auto md:rounded-none rounded-full mx-auto'

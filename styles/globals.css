@@ -67,6 +67,59 @@ body {
   animation-fill-mode: forwards;
 }
 
+.passion {
+  background: linear-gradient(to right, var(--green) 0%, var(--pink) 100%);
+  background-clip: initial;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.passion-2 {
+  background: linear-gradient(
+    to right,
+    var(--red-dark) 0%,
+    var(--blue-dark) 100%
+  );
+  background-clip: initial;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.jiggle {
+  animation: wave ease 1s;
+  animation-iteration-count: 1;
+  animation-fill-mode: forwards;
+}
+
+/* ANIMATIONS */
+
+@keyframes wave {
+  0% {
+    transform: rotate(0deg);
+  }
+  10% {
+    transform: rotate(14deg);
+  }
+  20% {
+    transform: rotate(-8deg);
+  }
+  30% {
+    transform: rotate(14deg);
+  }
+  40% {
+    transform: rotate(-4deg);
+  }
+  50% {
+    transform: rotate(10deg);
+  }
+  60% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(0deg);
+  }
+}
+
 @keyframes fadeInAnimation {
   0% {
     opacity: 0;
@@ -89,18 +142,4 @@ body {
   100% {
     opacity: 1;
   }
-}
-
-.passion {
-  background: linear-gradient(to right,var(--green) 0%, var(--pink) 100%);
-  background-clip: initial;
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-}
-
-.passion-2 {
-  background: linear-gradient(to right,var(--red-dark) 0%, var(--blue-dark) 100%);
-  background-clip: initial;
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
 }
