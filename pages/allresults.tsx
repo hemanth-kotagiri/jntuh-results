@@ -2,6 +2,7 @@ import axios from 'axios'
 import { ResultSubjectsList } from '../components/ResultSubjectsList'
 import { StudentInfoAndGPA } from '../components/StudentInfoAndGPA'
 import SubjectDetails from '../components/definedTypes'
+import { MdOutlineEventBusy as BusyIcon } from 'react-icons/md'
 
 export async function getServerSideProps(givenData: any) {
   const query = givenData.query
@@ -30,6 +31,16 @@ export default function AllResults({ data }: any) {
   const allresults = data.data.results
   const details = data.data.details
   const overall_gpa = data.data.overall_gpa
+  if (!allresults.length) {
+    return (
+      <div className='text-black dark:text-white flex flex-col px-3 text-center items-center min-h-max py-2 overflow-hidden font-inter'>
+        <BusyIcon className='mt-3' size={'48px'} />
+        <h1 className='text-lg sm:text-xl mt-6 mb-6 text-center'>
+          Looks like JNTU servers are down! Please try again after sometime!
+        </h1>
+      </div>
+    )
+  }
   return (
     <div className='text-black dark:text-white'>
       <StudentInfoAndGPA
