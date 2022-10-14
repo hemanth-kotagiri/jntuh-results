@@ -9,9 +9,10 @@ const NavBarComponent = () => {
   }
 
   const getMode = () => {
-    return typeof window !== 'undefined'
-      ? localStorage.getItem('mode')
-      : 'null' || false
+    if (typeof window !== 'undefined') {
+      return localStorage.getItem('mode') === 'true' ? true : false
+    }
+    return true
   }
   const [isEnable, setIsEnable] = useState(getMode() || false)
 
@@ -20,7 +21,7 @@ const NavBarComponent = () => {
     // Beginning of lone block
     isEnable ? root.classList.add('dark') : root.classList.remove('dark')
     // End of lone block
-    /* localStorage.setItem('mode', JSON.stringify(isEnable)) */
+    localStorage.setItem('mode', JSON.stringify(isEnable))
   }, [isEnable])
 
   return (

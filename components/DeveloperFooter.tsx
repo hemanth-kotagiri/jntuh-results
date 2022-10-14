@@ -64,14 +64,14 @@ const DeveloperFooter = () => {
               </div>
               <div className='flex flex-row justify-center md:justify-start'>
                 <a href={developer.github} target='_blank'>
-                  <GitHubIcon size='1.5rem' />
+                  <GitHubIcon size='1.5rem' className='dark:text-white' />
                 </a>
                 <a href={developer.linkedin} target='_blank'>
-                  <LinkedInIcon size='1.5rem' />
+                  <LinkedInIcon size='1.5rem' className='dark:text-white' />
                 </a>
                 {developer.website ? (
                   <a href={developer.website} target='_blank'>
-                    <Globe size='1.5rem' />
+                    <Globe size='1.5rem' className='dark:text-white' />
                   </a>
                 ) : null}
               </div>
