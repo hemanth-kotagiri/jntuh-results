@@ -1,6 +1,7 @@
 import {
   AiFillGithub as GitHubIcon,
   AiFillLinkedin as LinkedInIcon,
+  AiFillInstagram as InstagramIcon,
 } from 'react-icons/ai'
 import { BsGlobe as Globe } from 'react-icons/bs'
 
@@ -13,6 +14,7 @@ export interface DeveloperProfileType {
   github: string
   linkedin: string
   website?: string
+  instagram?: string
 }
 
 const DeveloperFooter = () => {
@@ -26,6 +28,7 @@ const DeveloperFooter = () => {
       github: 'https://github.com/hemanth-kotagiri',
       linkedin: 'https://linkedin.com/in/hemanth-kotagiri/',
       website: 'https://hemanthk.me',
+      instagram: 'https://instagram.com/hemanth_43',
     },
     {
       name: 'Syed Ansar',
@@ -69,6 +72,11 @@ const DeveloperFooter = () => {
                 <a href={developer.linkedin} target='_blank'>
                   <LinkedInIcon size='1.5rem' className='dark:text-white' />
                 </a>
+                {developer.instagram ? (
+                  <a href={developer.instagram} target='_blank'>
+                    <InstagramIcon size='1.5rem' className='dark:text-white' />
+                  </a>
+                ) : null}
                 {developer.website ? (
                   <a href={developer.website} target='_blank'>
                     <Globe size='1.5rem' className='dark:text-white' />
