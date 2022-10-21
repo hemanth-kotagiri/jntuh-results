@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react'
 import Link from 'next/link'
 import Navbar from './Navbar'
 import { MdOutlineDarkMode, MdLightMode } from 'react-icons/md'
+import { AiFillGithub as GitHubIcon } from 'react-icons/ai'
 
 const NavBarComponent = () => {
   function handleMode() {
@@ -42,6 +43,12 @@ const NavBarComponent = () => {
             <MdOutlineDarkMode className='w-5 h-5' />
           )}
         </h1>
+        <a
+          href='https://github.com/hemanth-kotagiri/jntuh-results-stats'
+          target={'_blank'}
+        >
+          <GitHubIcon size='1.5rem' className='dark:text-white text-black' />
+        </a>
         <Link href='login'>
           <h1 className='bg-[#2465df] text-white sm:px-2 px-3 md:px-4 py-1 md:py-2 text-xs lg:text-[16px] font-medium  md:font-semibold rounded-sm  md:text-md cursor-pointer'>
             Login/Signup

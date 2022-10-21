@@ -16,13 +16,6 @@ const HomeNavLinks = () => {
       ],
     },
     {
-      route: '/notifications',
-      desctiption: [
-        'Notifications',
-        'Get all the latest Notifications from JNTUH.',
-      ],
-    },
-    {
       route: '/single',
       desctiption: [
         'Get your Result',
@@ -34,6 +27,13 @@ const HomeNavLinks = () => {
       desctiption: [
         'Get Multiple Results',
         'Get Results of more than one hallticket with statistics',
+      ],
+    },
+    {
+      route: '/notifications',
+      desctiption: [
+        'Notifications',
+        'Get all the latest Notifications from JNTUH.',
       ],
     },
   ]
