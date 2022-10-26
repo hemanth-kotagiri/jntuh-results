@@ -2,7 +2,7 @@ import axios from 'axios'
 import { ResultSubjectsList } from '../components/ResultSubjectsList'
 import { StudentInfoAndGPA } from '../components/StudentInfoAndGPA'
 import { useEffect } from 'react'
-import { HashLoader } from 'react-spinners'
+import { HashLoader, RingLoader } from 'react-spinners'
 import Link from 'next/link'
 import { BiArrowBack as BackIcon } from 'react-icons/bi'
 import SubjectDetails from '../components/definedTypes'
@@ -91,12 +91,12 @@ export default function MultiResult({ data }: any) {
         url={'multiresult'}
       />
       {data['result'] === 'loading' ? (
-        <div className='flex flex-col items-center min-h-screen overflow-hidden text-center  font-inter'>
-          <h1 className='text-xl sm:text-2xl mt-6 mb-6 text-center text-gray-400'>
+        <div className='flex flex-col items-center min-h-screen overflow-hidden text-center font-inter'>
+          <h1 className='text-xl sm:text-2xl mt-6 mb-6 text-center text-black  dark:text-white'>
             Sit back, relax while the backend fetches all the results
           </h1>
           <hr className='sm:w-96 w-48 border-gray-700 mb-6' />
-          <HashLoader color={'#ffffff'} loading={true} size={30} />
+          <HashLoader color={''} loading={true} size={30} />
         </div>
       ) : (
         <div className=''>

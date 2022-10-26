@@ -111,7 +111,7 @@ export default function MultipleResults({ allResults }: Props) {
         multi={true}
       />
       {loading ? (
-        <h3 className='mt-6 text-lg font-bold text-center text-gray-400 sm:text-2xl'>
+        <h3 className='mt-6 text-lg font-bold text-center text-gray-800 dark:text-gray-400 sm:text-2xl'>
           Loading, Please wait...
         </h3>
       ) : null}

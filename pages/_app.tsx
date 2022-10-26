@@ -6,6 +6,7 @@ import Navbar from '../components/NavBar/Navbar'
 import { useRouter } from 'next/router'
 import { useEffect, useState } from 'react'
 import Script from 'next/script'
+import { Analytics } from '@vercel/analytics/react'
 
 function MyApp({ Component, pageProps }: AppProps) {
   const [isVisible, setIsVisible] = useState(true)
@@ -64,6 +65,7 @@ function MyApp({ Component, pageProps }: AppProps) {
           ) : null}
         </div>
       </div>
+      <Analytics />
     </>
   )
 }
