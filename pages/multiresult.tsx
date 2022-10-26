@@ -2,7 +2,7 @@ import axios from 'axios'
 import { ResultSubjectsList } from '../components/ResultSubjectsList'
 import { StudentInfoAndGPA } from '../components/StudentInfoAndGPA'
 import { useEffect } from 'react'
-import { HashLoader, RingLoader } from 'react-spinners'
+import { HashLoader } from 'react-spinners'
 import Link from 'next/link'
 import { BiArrowBack as BackIcon } from 'react-icons/bi'
 import SubjectDetails from '../components/definedTypes'
@@ -67,6 +67,13 @@ function refreshPage() {
   window.location.reload()
 }
 
+const getMode = () => {
+  if (typeof window !== 'undefined') {
+    return localStorage.getItem('mode') === 'true' ? true : false
+  }
+  return true
+}
+
 export default function MultiResult({ data }: any) {
   useEffect(() => {
     const interval = setInterval(() => {
@@ -96,7 +103,7 @@ export default function MultiResult({ data }: any) {
             Sit back, relax while the backend fetches all the results
           </h1>
           <hr className='sm:w-96 w-48 border-gray-700 mb-6' />
-          <HashLoader color={''} loading={true} size={30} />
+          <HashLoader color={getMode() ? '#ffffff' : "#000000"} loading={true} size={30} />
         </div>
       ) : (
         <div className=''>
@@ -135,16 +142,16 @@ export default function MultiResult({ data }: any) {
               <Link href='/'>
                 <div className='flex flex-row items-center justify-center cursor-pointer'>
                   <BackIcon size='1.5rem' className='mt-6 mr-2 text-gray-400' />
-                  <h3 className='mt-6 text-lg font-bold text-white sm:text-2xl'>
+                  <h3 className='mt-6 text-lg font-bold dark:text-white text-gray-800 sm:text-2xl'>
                     Home
                   </h3>
                 </div>
               </Link>
-              <h1 className='text-xl sm:text-2xl mt-6 mb-6 text-center text-gray-400'>
+              <h1 className='text-xl sm:text-2xl mt-6 mb-6 text-center dark:text-white text-gray-800'>
                 Oops, likely like no one wrote that exam, or JNTUH servers are
                 down!
               </h1>
-              <h2 className='text-white text-center'>
+              <h2 className='text-gray-800 dark:text-white text-center'>
                 JNTUH Servers didn't respond with any data, so please try for a
                 valid exam, or retry after sometime.
               </h2>

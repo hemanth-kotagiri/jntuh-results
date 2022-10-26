@@ -30,6 +30,12 @@ export async function getStaticProps() {
 export interface Props {
   allResults: Result[][]
 }
+const getMode = () => {
+  if (typeof window !== 'undefined') {
+    return localStorage.getItem('mode') === 'true' ? true : false
+  }
+  return true
+}
 
 export default function Single({ allResults }: Props) {
   const regularResults: Result[] = allResults[0]
@@ -106,7 +112,7 @@ export default function Single({ allResults }: Props) {
       />
       {loading ? (
         <div className='m-6 flex items-center justify-center'>
-          <RingLoader color={''} loading={true} size={50} />
+          <RingLoader color={getMode() ? '#ffffff' : "#000000"} loading={true} size={50} />
         </div>
       ) : null}
 
