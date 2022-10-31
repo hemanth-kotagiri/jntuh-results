@@ -30,7 +30,7 @@ interface studentInfoProps {
 
 export async function getServerSideProps(givenData: Props) {
   const query = givenData.query
-  var url = 'https://results-restapi.herokuapp.com/api'
+  var url = 'https://results-restapi.up.railway.app/api'
   if (query.selectedType === 'regular') {
     url += '/calculate'
   }

@@ -6,7 +6,7 @@ import { MdOutlineEventBusy as BusyIcon } from 'react-icons/md'
 
 export async function getServerSideProps(givenData: any) {
   const query = givenData.query
-  var url = 'https://results-restapi.herokuapp.com/all-r18'
+  var url = 'https://results-restapi.up.railway.app/all-r18'
   url += '/' + query.hallticket
   let data
   try {

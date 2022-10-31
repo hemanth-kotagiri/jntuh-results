@@ -28,7 +28,7 @@ interface Props {
 
 export async function getServerSideProps(givenData: Props) {
   const query = givenData.query
-  var url = 'https://results-restapi.herokuapp.com/api/bulk/calculate'
+  var url = 'https://results-restapi.up.railway.app/api/bulk/calculate'
   url += '?hallticket_from=' + query.fromHallticket
   url += '&hallticket_to=' + query.toHallticket
   url += '&dob=3'

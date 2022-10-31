@@ -8,8 +8,8 @@ import Head from 'next/head'
 const getData = async (refresh: boolean = false) => {
   var url
   refresh
-    ? (url = 'https://results-restapi.herokuapp.com/notifications?refresh=true')
-    : (url = 'https://results-restapi.herokuapp.com/notifications')
+    ? (url = 'https://results-restapi.up.railway.app/notifications?refresh=true')
+    : (url = 'https://results-restapi.up.railway.app/notifications')
 
   console.log('Getting Data...')
   console.log(url)

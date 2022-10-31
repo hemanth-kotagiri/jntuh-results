@@ -9,12 +9,12 @@ import { ExamsLinks } from '../components/ExamsLinks'
 
 export async function getStaticProps() {
   const regularResp = await axios.get(
-    'https://results-restapi.herokuapp.com/new/all/regular'
+    'https://results-restapi.up.railway.app/new/all/regular'
   )
   const regularResults = await regularResp.data
 
   const supplyResp = await axios.get(
-    'https://results-restapi.herokuapp.com/new/all/supply'
+    'https://results-restapi.up.railway.app/new/all/supply'
   )
   const supplyResults = await supplyResp.data
 

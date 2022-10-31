@@ -10,12 +10,12 @@ import { RingLoader } from 'react-spinners'
 
 export async function getStaticProps() {
   const regularResp = await axios.get(
-    'https://results-restapi.herokuapp.com/new/all/regular'
+    'https://results-restapi.up.railway.app/new/all/regular'
   )
   const regularResults = await regularResp.data
 
   const supplyResp = await axios.get(
-    'https://results-restapi.herokuapp.com/new/all/supply'
+    'https://results-restapi.up.railway.app/new/all/supply'
   )
   const supplyResults = await supplyResp.data
 
@@ -112,7 +112,11 @@ export default function Single({ allResults }: Props) {
       />
       {loading ? (
         <div className='m-6 flex items-center justify-center'>
-          <RingLoader color={getMode() ? '#ffffff' : "#000000"} loading={true} size={50} />
+          <RingLoader
+            color={getMode() ? '#ffffff' : '#000000'}
+            loading={true}
+            size={50}
+          />
         </div>
       ) : null}
 
