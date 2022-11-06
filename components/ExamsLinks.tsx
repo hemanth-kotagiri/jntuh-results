@@ -52,6 +52,7 @@ export const ExamsLinks = (props: Props) => {
                             degree: item.degree,
                             hallticket: props.hallticket!.toUpperCase(),
                             selectedType: props.selectedType,
+                            examName: item.exam_name,
                           }
                           : {
                             examCode: item.examCode,
@@ -63,6 +64,7 @@ export const ExamsLinks = (props: Props) => {
                             fromHallticket:
                               props.fromHallticket!.toUpperCase(),
                             toHallticket: props.toHallticket!.toUpperCase(),
+                            examName: item.exam_name,
                           },
                     }}
                   >

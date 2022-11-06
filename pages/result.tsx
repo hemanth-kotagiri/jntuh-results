@@ -14,6 +14,7 @@ interface queryProps {
   degree: string
   hallticket: string
   selectedType: string
+  examName: string
 }
 
 interface Props {
@@ -55,11 +56,12 @@ export async function getServerSideProps(givenData: Props) {
   return {
     props: {
       data: data,
+      examName: query.examName,
     },
   }
 }
 
-export default function Result({ data }: any) {
+export default function Result({ data, examName }: any) {
   var sgpaInfo
   var studentInfo: studentInfoProps
   var results: SubjectDetails[]
@@ -98,13 +100,19 @@ export default function Result({ data }: any) {
     results = data[1]
   }
   return (
-    <div className='min-h-screen overflow-hidden text-center font-inter flex justify-center p-10'>
+    <div className='flex-col items-center overflow-hidden text-center font-inter flex p-10'>
       <PageHead
         title={studentInfo.HTNO}
         description={'Single Hallticket Result'}
         url={'single'}
       />
-      <div className='w-fit justify-center border-black rounded-md  border dark:border-slate-800'>
+      <div
+        className='sm:w-max bg-blue-100 border-t border-b border-blue-500 text-blue-700 px-4 py-3'
+        role='alert'
+      >
+        <p className='font-bold'>{examName}</p>
+      </div>
+      <div className='items-center justify-center rounded-md dark:border-slate-800'>
         <StudentInfoAndGPA
           studentName={studentInfo.NAME}
           studentHTNO={studentInfo.HTNO}
