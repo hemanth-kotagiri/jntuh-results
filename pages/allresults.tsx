@@ -10,7 +10,7 @@ export async function getServerSideProps(givenData: any) {
   url += '/' + query.hallticket
   let data
   try {
-    const resp = await axios.get(url)
+    const resp = await axios.get(url, { timeout: 4000 })
     data = await resp.data
   } catch (e) {
     console.log(e)
@@ -28,10 +28,7 @@ export async function getServerSideProps(givenData: any) {
 }
 
 export default function AllResults({ data }: any) {
-  const allresults = data.data.results
-  const details = data.data.details
-  const overall_gpa = data.data.overall_gpa
-  if (!allresults.length) {
+  if (!data || data === 'error' || data === undefined) {
     return (
       <div className='text-black dark:text-white flex flex-col px-3 text-center items-center min-h-max py-2 overflow-hidden font-inter'>
         <BusyIcon className='mt-3' size={'48px'} />
@@ -41,6 +38,9 @@ export default function AllResults({ data }: any) {
       </div>
     )
   }
+  const allresults = data.data.results
+  const details = data.data.details
+  const overall_gpa = data.data.overall_gpa
   return (
     <div className='text-black dark:text-white'>
       <StudentInfoAndGPA
