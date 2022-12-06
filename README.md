@@ -26,6 +26,7 @@ percentages and subject wise mean total marks.
 
 - Filter the exam links as you want - Regulation(s), and Exam type. (The only
   reason why I started this project).
+- **All R18 Results** - Results of all semesters of R18 regulation batch students in one shot.
 - **Notifications** - Latest B.Tech exam results released notifications.
 - **Single Student Result** - Ability to get result along with the SGPA of a single student provided the hallticket.
 - **Results of Multiple Students** given a specific range of halltickets along with statistics such as
