@@ -14,10 +14,7 @@ export const RegulationsList = (props: Props) => {
             <input
               type='radio'
               value={item}
-              className='w-4 h-4 text-blue-600 bg-gray-100 border-gray-300
-              focus:ring-blue-500 dark:focus:ring-blue-600
-              dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700
-              dark:border-gray-600'
+              className='border-black appearance-none rounded-full h-4 w-4 border dark:border-gray-300 bg-white checked:bg-blue-600 checked:border-blue-600 focus:outline-none transition duration-200 bg-no-repeat bg-center bg-contain cursor-pointer'
               name='regulation'
               id={idx.toString()}
               onClick={(e: React.FormEvent<HTMLInputElement>) =>

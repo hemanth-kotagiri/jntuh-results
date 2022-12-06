@@ -91,7 +91,7 @@ export const ExamsLinks = (props: Props) => {
           </div>
         </div>
       ) : (
-        <h1 className='mt-6 text-sm text-center text-white sm:text-lg'>
+        <h1 className='mt-6 text-sm text-center text-black dark:text-white sm:text-lg'>
           No {props.heading} Links Found for {props.selectedRegulation} Series!
         </h1>
       )}
