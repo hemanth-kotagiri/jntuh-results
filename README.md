@@ -1,13 +1,13 @@
 # [ JNTUH Results Statistics ](https://jntuh-results-stats.vercel.app)
 
-<img src="./homepage.png">
+<img src="homepage.png">
 <br>
 <br>
 
 <p align="center">
-<code><img height="50" src="https://raw.githubusercontent.com/Neikan/Neikan/master/img/icons/NextJS.svg"></code>
-<code><img height="50" src="https://raw.githubusercontent.com/Neikan/Neikan/master/img/icons/React.svg"></code>
-<code><img height="50" src="https://raw.githubusercontent.com/Neikan/Neikan/master/img/icons/Typescript.svg"></code>
+<code><img height="50" src="https://camo.githubusercontent.com/e1e113df83e7731fdb90f6f0ab2eeb155fd1b48c27d99814dcf1c23c0acdc6a2/68747470733a2f2f6173736574732e76657263656c2e636f6d2f696d6167652f75706c6f61642f76313636323133303535392f6e6578746a732f49636f6e5f6461726b5f6261636b67726f756e642e706e67"></code>
+<code><img height="50" src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/a7/React-icon.svg/1280px-React-icon.svg.png"></code>
+<code><img height="50" src="https://upload.wikimedia.org/wikipedia/commons/thumb/f/f5/Typescript.svg/800px-Typescript.svg.png"></code>
 <code><img height="50" src="https://avatars.githubusercontent.com/u/67109815?s=200&v=4"></code>
 <code><img height="50" src="https://www.chartjs.org/img/chartjs-logo.svg"></code>
 </p>
