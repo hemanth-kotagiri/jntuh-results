@@ -27,7 +27,7 @@ const DeveloperFooter = () => {
       quote: 'A dude who does a little bit of everything.',
       github: 'https://github.com/hemanth-kotagiri',
       linkedin: 'https://linkedin.com/in/hemanth-kotagiri/',
-      website: 'https://hemanthk.me',
+      website: 'https://hemanth-kotagiri.github.io',
       instagram: 'https://instagram.com/hemanth_43',
     },
     {
