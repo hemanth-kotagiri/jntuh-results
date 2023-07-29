@@ -121,10 +121,10 @@ export default function Single({ allResults }: Props) {
       ) : null}
 
       {regular &&
-        didUserSelectType &&
-        didUserSelectRegulation &&
-        !loading &&
-        hallticket.length === 10 ? (
+      didUserSelectType &&
+      didUserSelectRegulation &&
+      !loading &&
+      hallticket.length === 10 ? (
         <ExamsLinks
           heading={'Regular Results'}
           hallticket={hallticket}
@@ -136,10 +136,10 @@ export default function Single({ allResults }: Props) {
         />
       ) : null}
       {supply &&
-        didUserSelectType &&
-        didUserSelectRegulation &&
-        !loading &&
-        hallticket.length === 10 ? (
+      didUserSelectType &&
+      didUserSelectRegulation &&
+      !loading &&
+      hallticket.length === 10 ? (
         <ExamsLinks
           heading={'Supply Results'}
           hallticket={hallticket}

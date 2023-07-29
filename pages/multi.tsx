@@ -117,11 +117,11 @@ export default function MultipleResults({ allResults }: Props) {
       ) : null}
 
       {regular &&
-        didUserSelectType &&
-        didUserSelectRegulation &&
-        !loading &&
-        fromHallticket.length === 10 &&
-        toHallticket.length === 10 ? (
+      didUserSelectType &&
+      didUserSelectRegulation &&
+      !loading &&
+      fromHallticket.length === 10 &&
+      toHallticket.length === 10 ? (
         <ExamsLinks
           heading={'Regular Results'}
           fromHallticket={fromHallticket}
@@ -134,11 +134,11 @@ export default function MultipleResults({ allResults }: Props) {
         />
       ) : null}
       {supply &&
-        didUserSelectType &&
-        didUserSelectRegulation &&
-        !loading &&
-        fromHallticket.length === 10 &&
-        toHallticket.length === 10 ? (
+      didUserSelectType &&
+      didUserSelectRegulation &&
+      !loading &&
+      fromHallticket.length === 10 &&
+      toHallticket.length === 10 ? (
         <ExamsLinks
           heading={'Supply Results'}
           fromHallticket={fromHallticket}
