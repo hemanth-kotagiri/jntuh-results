@@ -7,6 +7,7 @@ import { useRouter } from 'next/router'
 import { useEffect, useState } from 'react'
 import Script from 'next/script'
 import { Analytics } from '@vercel/analytics/react'
+import ScrollToTop from '../components/ScrollToTop'
 
 function MyApp({ Component, pageProps }: AppProps) {
   const [isVisible, setIsVisible] = useState(true)
@@ -65,6 +66,7 @@ function MyApp({ Component, pageProps }: AppProps) {
           ) : null}
         </div>
       </div>
+      <ScrollToTop />
       <Analytics />
     </>
   )
